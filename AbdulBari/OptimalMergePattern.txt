@@ -1,0 +1,91 @@
+List:  A B C D
+Sizes: 6 5 2 3
+A B
+11
+AB C
+13
+ABC D
+16
+
+11+13+16=40
+
+AB 11
+CD 5
+ABCD 16
+
+11+5+16=32
+
+CD 5
+CD B 10
+A  BCD 16
+16+10+5=31
+
+AC 8
+BD 8
+ABCD 16 32
+
+Birleştirme işlemine en küçük uzunluğa sahip listeyle, diğer en küçük uzunluğa sahip listeyi birleştirmeye başlarsak
+optimize merg patterni bulmuş oluruz.
+
+
+20 30 10 5 25
+
+10 5 15
+15 20 35
+25 30 55
+55 35 90
+
+Merge maliyetini bulmak için gereken olayı anladıysak o zaman bunu bulan kodu nasıl yazacağım hakkındaki görüşüm aşağıdaki gibidir.
+
+Şimdi bir min heap oluşturalım.
+Böylelike daima en küçük maliyete sahip olan elemanı bulmuş olacağız.
+İlk heap elemanı alınır
+ikinci heap elemanı alınır
+ondan sonra bu iki heap elemanı birleştirilir.
+Çıkan sonuç farklı bir elemana aktarılır (böylelikle yeni oluşan sayıyı tekrardan heape ekleyebilelim)
+bu cost total_costa eklenir.
+heape oluşturulan eleman gönderilir.
+birleştirme adımını gösterek kullanıcı dostu bir program hazırlayalım.
+Bu işlem taa ki files dosyamızda 1 eleman kalana kadar devam etsin.
+örnek olarak 20 30 10 5 25 sayılarını ele alalım
+
+          5
+	/   \
+       10   20
+      /  \
+     25  30
+
+
+         10
+	/   \
+       25   20
+      /  
+     30
+	
+	 20
+	/   \
+       25   30
+        
+     
+unutma heapte silme işlemi gerçekleştiğinde kökteki eleman alınır.,(pop) en sondaki eleman köke gönderilir sonra elemanlarla kıyaslanarak min denge sağlanmış olur.
+
+heap yapısı oluşturuldu.
+5 ve 10 alındı ve birleştirildi. 15 sayısı elde edildi.
+heape sonradan eklenecek elemana eklendi.
+total_cost a eklendi -> 15
+heape sonradan eklenecek eleman pushlandı.
+heapteki yeni durum
+          20
+	/   \
+       25    30
+      /
+     15
+Aynı şekilde eleman eklenirse sona eklenir. sona eklenir sonra gerekli değişimlerle min sağlanır.
+
+ 	 15
+	/   \
+       20    30
+      /
+     25
+
+Görüldüğü gibi bu işlem devam eder ve gerekli sonuca ulaşmış oluruz.

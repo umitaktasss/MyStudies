@@ -1,0 +1,307 @@
+What is a Linked List?
+
+A linked list is a data structure used for storing collections of data.
+The following properties:
+	* Successive elements are connected by pointers
+	* The last element points to NULL
+	* Can grow or shrink in size during execution of a program.
+	* Can be made just as long as required unless system memory exhausts
+	* Does not waste memory space (but takes some extra memory for pointers). It allocates memory as list grows.
+
+
+Main Linked Lists Operations
+Insert: Adding an element into the list 
+Delete: Removes and returns the specified position element from the list
+
+Auxiliary Linked Lists Operations
+Delete List
+Count
+Find element
+
+
+Why do we need Linked Lists?
+
+Before explaining why we need Linked List, Let's demonstrate arrays.
+As we know, Array and Linked List are both used to store collections of data, since both are used for the same purpose.
+They both have different in situations. That means, To use Arrays is suitiable sometimes. To use Linked Lists is suitiable sometimes.
+
+Arrays Properties
+	* One memory block is allocated for the entire array to hold the elements of the array.
+	* Faster access to the elements. (To access particular element takes O(1) time.)
+	* Simple and easy
+	* Preallocates all needed memory up front and wastes memory space for indices in the array that are empty.
+	* Static size: The size of array is static
+	* Complex position-based insertion (Needed to shift existing elements if to insert a element at a given position)
+
+Dynamic Arrays Properties:
+	* Dynamic array (Growable, resiable etc)
+	* As soon as that array becomes full, create the new array double the size of the original array.
+
+Advantages of Linked list:
+	* It can be expanded in constant time.
+	* Not waste of memory. To compare with arrays add on new elements doesn't need to do any copying and reallocating.
+
+Disadvanteges:
+	* To access element at a given position takes O(n) time.
+	* Linked lists waste memory in terms of extra reference points.
+
+
+Comparision of Linked Lists with Arrays  Dynamic Arrays.
+
+Parameter							Linked List                Array							Dynamic Array
+Indexing							 O(n)                      O(1)								 O(1)
+Insertion/Deletion 
+at begining							 O(1)                      O(n)(if array not full)           O(n)
+Insertion at ending                  O(1)                      O(1) if array not full            O(1) if array is not full otherwise O(n)
+Deletion at ending					 O(n)                      O(1)                              O(n)
+Insertion in middle                  O(n)                      O(n) if array not full(shifting)  O(n)
+Deletion in middle                   O(n)                      O(n) if array not full(shifting)  O(n)
+Wasted space						 O(n)(for pointers)         0                                O(n)
+
+
+Single linked list structure in Python:
+
+
+To initilize node structure, next pointer and data that has to be store.
+class Node:
+	def __init__(self,data):
+		self.data = data
+		self.next = None
+
+
+As we mentioned before the basic operations:
+	* Traverse (To find element or to count the list)
+	* Insert (To insert at the beggining or at the end)
+	* Delete ()
+
+
+
+Traverse in the linked list
+	* Start from the head
+	* Follow the pointers
+	* Display the contents of the nodes (or count) as they are traversed
+	* Stop when the next points to NULL
+class Linkedlist:
+	......... // statements
+	......... // statements
+	def list_lenght(self):
+		current = self.head   #Pointer that points the head
+		count = 0             
+		while current is not None: # Traverse in the list
+			count += 1               
+			current = current.next  # Traversing
+		return count             
+	def find_element(self,data):
+		current = self.head     #Pointer that points the head
+		index = 0
+		while current is not None:  # Traverse in the list
+			if current.data == data:  # Element has found
+				return True, index
+			current = current.next
+			index += 1
+		return False, -1           # Element is not exist in the list.
+	..........// statements
+	.........// statements
+
+As you presume, To scane list takes O(n) times for a n size list also space O(1) for creating temporary variable.
+
+
+Insertion
+
+Inserting at the beginning
+In this case:
+	Update the next pointer of new node, to point the current head
+	Then
+	Update head pointer to point the new node
+The structure of the class:
+We need tail and head to add element in the list O(1) time
+class LinkedList:
+	def __init__(self):
+		self.head = None
+		self.tail = None 
+
+
+	def insert_at_beginning(self,data):
+		new_node = Node(data)
+		# If elements are not exists
+		if self.head is None:
+			self.head = new_node
+			self.tail = new_node
+			return
+		
+		new_node.next = self.head
+		self.head = new_node
+Time Complexity: O(1)
+Space Complexity: O(1)
+Inserting at end:
+In this case we need to update the tail node.
+As same as with inserting at beginning.
+First tail node points the new node, then update the tail node
+	def insert_at_end(self,data):
+		new_node = Node(data)
+		#If elements are not exists 
+		if self.head and self.tail is None:
+			self.head = new_node
+			self.tail = new_node
+		else:
+			self.tail.next = new_node
+			self.tail = new_node
+Time complexity: O(1) (due to direct access to the tail)
+Space Complexity : O(1)
+Inserting in Position:
+
+In this case we need to traverse in the list and also  we need to modify two next pointers.
+
+Example If we want to add an element at position 3 then we stop at position 2. That means we traverse 2 nodes and insert the new node.
+Position pointer and position_tail pointer
+
+	def insert_at_position(self, position, data):
+		new_node = Node(data)
+
+		#To insert element in first position
+		if position == 0:
+			self.insert_at_beggining()
+			return
+		else:
+			current = self.head  #To traverse in the list
+			previous = None      #Previous (position_tail) pointer 
+			index = 0
+
+		while current is not None and index < position: 
+			previous = current
+			current = current.next
+			index += 1 # Increase the index
+
+		if previous is not None: 
+			new_node.next = current 
+			previous.next = new_node
+			if new_node.next is None:
+                    self.tail = new_node
+       else:
+           print("Position out of bounds")
+   
+
+
+
+Let's sum up all the cases.
+O(1) for inserting element at beginning and ending
+O(n) for inserting element in a specific index (ofc if it's not beginning or end)
+
+
+
+
+Deleting Operation
+	* Deleting first node
+	* Deleting the last node
+	* Deleting an intermediate node
+
+
+Deleting First Node
+
+First node (current head node) is removed from the list
+It can be done in two step:
+	Create a temporary node that holds the head node.
+	Then move the head nodes pointer to the next node and delete temporary node.
+
+	def delete_at_beginning(self):
+		
+		if self.head is None:
+			print("The list is empty.")
+			return
+
+		temp = self.head
+		self.head = self.head.next
+
+		del temp
+	Time complexity : O(1)
+	Space complexity O(1) (due to temporary node)
+Deleting the Last Node
+
+In this case, we need to traverse in the list and find previous node which before the tail. We're going to use two node temp_tail and previous_tail. Update tail to the previous node. Then update previous node next to null.
+delete temp_tail
+
+	def delete_at_end(self):
+		if self.head is None:
+			print("The list is empty.")
+			return
+		if self.head == self.tail:
+			self.head = None
+			self.tail = None
+			return
+
+		temp_tail = self.head
+		previous = None
+
+		while temp_tail is not None:
+			previous = temp_tail
+			temp_tail = temp_tail.next
+		
+		self.tail = previous
+		previous.next = None
+		
+		del temp_tail
+		Time complexity: O(n) (due to traversing)
+		Space complexity: O(1)
+
+Deleting Node at position:
+
+	In this case, the node to removed has to be between two nodes.
+		We need two pointer to traverse in the list. Two pointer which points the node to be deleted and other is the node right before the node to deleted.
+		First keep traverse at the exact point: Once we find the node to be deleted, change the previous node's next pointer to the next pointer of the node to be deleted.
+		dispose of the current node to be deleted.
+
+	def delete_node_at_position(self, position):
+		if self.head is None:
+			print("List is empty.")
+			return
+		if position == 0:
+			self.delete_at_beginning()
+			return
+		current = self.head
+		previous = None
+		index = 0
+
+		while current is not None and index < position:
+			previous = current
+			current = current.next
+			index +=1
+
+		if current is None:
+			print("Position does not exist.")
+			return
+		previous.next = current.next
+		del current
+		Time complexity: O(n) (due to traversing)
+		Space complexity: O(1)
+To Delete the List
+
+	This works by storing the current node in some temporary variable and freeing the current node. After freeing the current node,
+	go to the next node with a temporary variable and repeat this process for all nodes.
+	
+	def delete_list(self):
+		current = self.head
+
+		while current:
+			auxiliary_node = current.next
+			print(f"Deleting node with data: {current.data}")
+			del current
+			current = auxiliary_node
+		
+		self.head = None
+		self.tail = None
+
+	Time Complexity : O(n), for scanning the complete list of size n
+	Space : O(1)
+
+To print the list
+	This works by traversing the current node and showing the data.
+
+def display(self):
+    current = self.head
+    while current:
+        print(current.data, end=" -> " if current.next else "\n")
+        current = current.next
+	Time complexity: O(n)
+	Space complexity: O(1)
+
+

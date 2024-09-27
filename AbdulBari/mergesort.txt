@@ -1,0 +1,67 @@
+Merge i�lemi ad�ndanda anla��laca�� gibi birle�tirme i�lemidir.
+Peki birle�tirme i�lemi i�in bize ne laz�m? Par�a laz�m. Bir b�t�nden belirli par�alar olu�turarak bu par�alar� birle�tirebiliriz.
+En k���k par�adan ba�layarak bunlar� s�ralamak ve bu s�ralama i�lemini birle�tirmek. Diyebilirim.
+��yle, zaten s�ralanm�� olan iki listeyi birle�tirmek gibi.
+A[2,8,15,18] B[5,9,12,17]
+  ^            ^
+  i            j
+C[]
+  ^
+  k
+  e�er i indeksimizdeki say� j indeksimizdeki say�dan k���kse C ye kopyala sora i i�in sonraki iterasyona ge� ve k i�in sonraki iterasyona ge�
+  A[2,8,15,18] B[5,9,12,17]
+      ^          ^
+      i          j
+C[2, ]
+    ^
+    k
+    bu a�amalar s�ras�yla
+    i    j    k     C    
+    0    0    0     2    2<5
+    1    0    1     5    8>5
+    1    1    2     8    8<9
+    2    1    3     9    15>9
+    2    2    4     12   15>12
+    2    3    5     15   15<17
+    3    3    6     17   18>17
+    3    -    7     18
+    m    n   m+n
+    
+    o(m+n)
+
+    Merge i�in algorithm
+
+    Merge(a,b,m,n){
+        i=0; j=0; k=0;
+        while(i<=m && j<=n)
+            if(A[i]<B[j]):
+                C[k++]=A[i++]
+            else:
+                C[k++]=B[j++]
+        for (; i<=m;i++)
+            c[k++]=A[i]
+        for (; j<=m;j++)
+            c[k++]=B[j]
+    
+    }
+    Peki bu merge i�lemini kullanmak pythonda iyi mi?
+    Hay�r sort ve sorted methodlar� (Timsort) merge sortun i�lemini zaten yerine getiriyor.
+    Ama algoritmalardaki mant��� alg�lamak ad�na iyi.
+    Yukar�daki i�lemimiz zaten s�ral� olarak verilen listeler i�in.
+    �imdiyse 2 way merge sortu inceleyece�iz:
+    Elimizde bulunan arraydeki elemanlar rastgele �ekilde yerle�tirilmi� olsun.
+    Peki bu durumda hangi mant��� kullanaca��z?
+    Arrayi tek elemanl� dizilere veya s�ralanm�� listelere par�alayaca��z.
+    Daha sonra buradaki her eleman i�in merge i�lemi ger�ekle�tirece�iz.
+    B�ylelikle merge i�lemi ger�ekle�mi� olacak. 
+
+
+Merge sort:
+En iyi Durum: O(nlogn)
+Ortalama Durum: O(nlogn)
+En k�t� Durum: O(nlogn)
+
+Timsort:
+En iyi Durum: O(n)
+Ortalama Durum: O(nlogn)
+En k�t� Durum: O(nlogn)

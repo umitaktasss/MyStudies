@@ -1,0 +1,27 @@
+Minimum Cost Spanning Tree:
+G = (V,E)
+V = {1,2,3,4,5,6}
+E = {(1,2),(2,3),(4,5).....}
+|v|=n = 6
+|v|-1=5 edges
+s graphin alt k�mesidir. S'in (v',E') olarak tan�mland��� yerde.
+V'=V
+|E|=|v|-1
+
+
+Bir spanning treede eleman say�s� - 1 kadar path se�ebiliriz.
+�rnek olarak 4 elemanl� bir spaning treeyi ele al�rsak. G�rsel dosyada.
+�rnekte g�r�ld��� gibidir.
+
+Peki minimum costu nas�l bulabilir? T�m olas�l�klar� denemeden nas�l bunu ba�arabiliriz?
+Greedy algoritmada bulunan
+Primin algoritmas� veya kruskal�n algoritmas�n� deneyebiliriz.
+Peki prim algoritmas�nda dikkat edilmesi gereken �ey ne?
+Prim belirli bir noktadan ba�layarak en d���k maliyetli yolu se�er.
+Bu noktadaki elemandan devam ederek en d���k maliyetli yolu bulmaya devam eder.
+K�sacas� ba�lant�s� olan en d���k maliyetli yolu se�.
+Kruskal�n algoritmas� peki?
+Kruskal daima en d���k maliyetli yolu se� der ve bu yolun bir �ember olu�turmamas�n� kural olarak �artlar.
+
+Kruskal ve primin algoritmas�n�n bulundu�u bir kod �rne�i bul ve �zerinde �al��.
+

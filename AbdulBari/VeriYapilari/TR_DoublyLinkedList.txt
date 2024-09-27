@@ -1,0 +1,194 @@
+Doubly linked listin single linked listten farkı
+her iki yönden elemanlara ulaşabilmektir.
+Görüldüğü gibi single linked listte kaldırmak istediğimiz node için
+kendi pointerlerini kullanmamız gerekir. Pointer kullanmamız gerekir. Ama bu doubly linked listte
+sorun değil, istediğimiz node'u silebilmek için bir önceki node'un adresine ihtiyacımız yoktur.
+
+Dezvantajları:
+Her düğümde ekstra bir pointer bulunması daha fazla bellek tüketir.
+Düğüm ekleme ve silme işlemleri biraz daha fazla zaman alır çünkü iki işaretçinin de
+güncellenmesi gerekir.
+
+
+
+Double listeki eleman ekleme ve eleman çıkarma işlemleri
+Başa eleman ekleme.
+En sona eleman ekleme.
+Ortalara eleman ekleme.
+
+Başlangıca eleman ekleme:
+Bu durumda yeni node eklenmiş node'un öncesine eklenir.
+Next pointerler ve previous pointerların güncellenmesi gerekir.
+Yeni node'un sağ pointerini şuanki başın node'una pointle ve sol pointeri null olarak ayarla.
+Daha sonra baş node'un sol pointerini yeni node ile değiştir ve yeni node'u head olarak ayarla.
+
+
+Sona eleman ekleme:
+Bu durumda, liste içerisinde sona ulaşıncaya kadar gezineceğiz ve yeni node'u ekleyeceğiz.
+New node'un sağ pointeri null u gösterecek ve yeni node'un sol pointeri en sondaki node'un null gösteren pointerına bağlanacak(sağ)
+Daha listenin en sonunda bulunan node yeni node'un sol pointerına bağlanacak.
+
+
+Ortalara eleman ekleme
+Singly linked liste tartıştığımız gibi, liste içerisinde eklemek istediğimiz indexse kadar gideceğiz daha sonra node'u ekleyeceğiz.
+Yeni oluşturulan node'un sağ pointeri, eklemek istediğimiz posizyonda pointerin pointlediği node'u işaret edecek.
+ve yeni node'un sol pointeri posizyondaki node'u pointleyecek.
+Posizyonda bulunan node'un sağ pointeri yeni pointeri pointleyecek ve posizyondan bir sonraki pointerin sol pointeri yeni node'u pointleyecek.
+
+
+
+Deleting the First Node in Doubly Linked List
+Bu durumda ilk node listeden kaldırılır ve iki adımda gerçekleşir.
+Temp head oluşturulur ve headın gösterdiği node gösterilir.
+daha sonra head bir sonraki node'u gösterecek ve sol pointer null olacak.
+
+Deleting the Last Node in Doubly Linked List
+Baştaki node'u silmekten biraz daha zor bir işlem. Öncellikle node'u bulmalıyız. Bu node için previous tail ve tail ayarlayacağız ve bu işlem 3 adımda gerçekleşecek.
+Öncellikle liste içerisinde gezeceğiz ve en son node'a gideceğiz aynı şekilde önceki node için previous node tail lazım.
+en sondaki pointer silmek istediğimiz node'u gösterecek. diğeriyse önceki node'u
+
+previous node tailin next poiterini null olarak ayarla.
+tail node'dan kurtul
+
+Deleting an Intermediate Node in Doubly Linked List
+Kaldırılmak istenen node bu durumda iki nod arasında olacak.
+Bu işlem iki adımda gerçekleşecek.
+Önceki işlemdeki gibi previous node'a ihtiyacımız olacak.
+Previous node'un nextini silenecek olaan node'un önündeki node'la değiştir.
+Aynı şekilde silinecek olan node'un önünde bulunan node'un previousunu previous node'la değiştir.
+Daha sonra silenecek olan düğümü silin.
+
+
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.previous = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+    
+        new_node.next = self.head
+        if self.head is not None:
+            self.head.previous = new_node
+       
+        new_node.previous = None
+        self.head = new_node
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        new_node.next = None
+
+        if self.head is None:
+            new_node.previous = None
+            self.head = new_node
+            return
+
+        current = self.head
+        while current.next is not None:
+            current = current.next
+        
+        new_node.previous = current
+        current.next = new_node
+
+    def insert_at_position(self, data, position):
+        # Yeni düğüm oluştur
+        new_node = Node(data)
+    
+        # Eğer liste boşsa veya başa eklemek istiyorsak
+        if position == 0 or self.head is None:
+            self.insert_at_beginning(data)
+            return
+    
+        # Mevcut pozisyona kadar listeyi gez
+        current = self.head
+        for _ in range(position - 1):
+            if current.next is None:
+                break
+            current = current.next
+    
+        # Yeni düğümün işaretçilerini ayarla
+        new_node.next = current.next
+        new_node.previous = current
+    
+        # Eğer current'in next'i None değilse (ortada bir pozisyona ekliyorsak)
+        if current.next is not None:
+            current.next.previous = new_node
+    
+        # Pozisyon düğümünün next pointer'ını yeni düğüme ayarla
+        current.next = new_node
+
+     def delete_first_node(self):
+     
+         if self.head is None:
+            print("Liste boş.")
+
+            return
+
+        temp = self.head
+        
+        self.head = self.head.next
+
+        if self.head is not None:
+            self.head.previou = None
+
+        del temp
+      
+      def delete_last_node(self):
+
+        if self.head is None:
+            print("List is empty.")
+            return
+
+        if self.head.next is None:
+            self.head = None
+            return
+            
+         tail = self.head
+         previous_tail = None
+        
+        while tail.next is not None:
+            previous_tail = tail
+            tail = tail.next
+
+       
+        previous_tail.next = None
+
+        del tail
+
+        def delete_node_at_position(self, position):
+            if self.head is None:
+                print("List is empty.")
+                return
+
+
+            if position ==0:
+                self.delete_at_beginning()
+                return
+
+
+            current = self.head
+            index =0
+
+            while current is not None and index < position:
+                current = current.next
+                index += 1
+
+
+            if current is None:
+                print("Böyle bir pozisyon yok!")
+                return
+                
+            if current.previous is not None:
+               current.previous.next = current.next
+
+            if current.next is not None:
+               current.next.previous = current.previous
+
+
+            del current

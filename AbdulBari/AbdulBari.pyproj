@@ -1,0 +1,73 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d197ccee-c6d9-4ca0-b6d7-6cdc238aa410</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>VeriYapilari\02-DoublyLinkedList.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>AbdulBari</Name>
+    <RootNamespace>AbdulBari</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="02-Merge.py" />
+    <Compile Include="02-MergeSort.py" />
+    <Compile Include="04-MatrixMultiplication.py" />
+    <Compile Include="05-HeapTree.py" />
+    <Compile Include="07-JobSequences.py" />
+    <Compile Include="08-Jobsequences2.py" />
+    <Compile Include="09-OptimalMerge.py" />
+    <Compile Include="AbdulBari.py" />
+    <Compile Include="01-BinarySeach.py" />
+    <Compile Include="03-QuickSort.py" />
+    <Compile Include="06-KnapSack.py" />
+    <Compile Include="10-Huffman.py" />
+    <Compile Include="BasitProjeler\Library.py" />
+    <Compile Include="BasitProjeler\Library_a.py" />
+    <Compile Include="JobSequenceingWithDeadlines.txt" />
+    <Compile Include="11-PrimsandKruskals.py" />
+    <Compile Include="VeriYapilari\01-SingleLinkedList.py" />
+    <Compile Include="VeriYapilari\02-DoublyLinkedList.py" />
+    <Compile Include="VeriYapilari\03-XORLinkedList.py" />
+    <Compile Include="VeriYapilari\04-CircularLinkedList.py" />
+    <Compile Include="VeriYapilari\SingleLinkedList.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrimveKurskalinalgoritmasi.txt" />
+    <Content Include="VeriYapilari\CircularLinkedList.txt" />
+    <Content Include="VeriYapilari\02-EN_DoublyLinkedList.txt" />
+    <Content Include="VeriYapilari\TR_DoublyLinkedList.txt" />
+    <Content Include="VeriYapilari\heap.txt" />
+    <Content Include="HuffmanCoding.txt" />
+    <Content Include="mergesort.txt" />
+    <Content Include="OptimalMergePattern.txt" />
+    <Content Include="quicksort.txt" />
+    <Content Include="RecurrenceRelation.txt" />
+    <Content Include="StrassensMatrixMultiplication.txt" />
+    <Content Include="VeriYapilari\01-SingleLinkedList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BasitProjeler\" />
+    <Folder Include="VeriYapilari\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

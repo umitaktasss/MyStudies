@@ -1,0 +1,13 @@
+�ncellikle bir matrikste �arpma i�lemi nas�l ger�ekle�ir onu k�saca bir g�zden ge�irelim
+
+A[a11, a12]					 B[b11, b12]     C[C11 C12]
+ [a21, a22]					 [b21, b22]		  [C21 C22]
+	2*2							 2*2          2*2[ilk �arpan ve ikinci �arpan]
+ikinci �arpan                 ilk �arpan
+
+					 n
+			Cij=toplamsembol� Aik*Bkj
+					k=1
+
+
+Cebir konusu tekrar edildi�inde buraya geri d�n�� yap�lacakt�r!

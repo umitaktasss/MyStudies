@@ -1,0 +1,110 @@
+ Heapi anlayabilmek i�in bilinmesi gereken konu ba�l�klar�
+ 1-Array Representation of BT
+ 2-Complete Binary Tree
+ 3-Heap
+ 4-Insert & Delete
+ 5-Heap Sort
+ 6-Heapify
+ 7-Priority Queue
+
+						A
+					/		\
+				B              C					
+			/		\		/		\
+		  D	         E     F          G
+					
+					T[A,B,C,D,E,F,G]
+Binary Tree mant���nda 2 �nemli �eye dikkat ederiz.
+1-T�m elemanlar� depolamak
+2-Child parent ili�kisi, kim parent, kim sa� �ocuk, kim sol �ocuk
+E�er Tree yap�m�za dikkatlice bak�l�rsa A parent B sol child C sa� child, Ayn� �ekilde B i�in D sol child, E ise sa� child.					
+Ve depolanma �ekilleride g�rd���n�z gibi. A B C D  E                
+Burada g�rd���m�z sonu�lar bizi bu form�llere g�t�r�yor.		
+Bir indeksteki node i�in - i dersek		2	
+sol child- 2*i                          4   
+sa� child- 2*i+1                        5
+parent ise i/2 olur                     1
+						1
+					/		\
+				2              3					
+			/		\			
+		  4	         5          
+
+
+Buradaki bir tree olu�turur.
+						A
+					/		\
+				B              C					
+			/		\			
+		  D	         E          
+		  
+E�er B nin alt�nda child yoksa o k�s�mlar� blank b�rakmam�z laz�m.
+						A
+					/		\
+				B             C					
+			/		\   	/		\
+			-		-	  D		      E
+		T[A,B,C,-,-,D,E]
+Bir complete binary treenin alabilece�i maksimum eleman say�s�
+
+2^(h+1)-1 dir. E�er H 1 se  2^2-1 = 3->eleman
+				E�er H 10 sa 2^10-1=1023->eleman
+Complete Binary Tree:
+Peki Complete Binary Tree ne?.
+						1
+					/		\
+				2              3					
+			/		\		/		\
+		  4	         5     6		 7   
+G�r�ld��� �zere herhangi kay�p bir eleman yok
+T[1,2,3,4,5,6,7]
+E�er kay�p eleman olsayd� Complete olmazd�.
+T[1,2,3,4,-,6,7] g�r�ld��� gibi bu bir complite binary tree de�ildir.
+Max Heap ve Min Heap.
+					 
+Her parent t�m desendentlerinden b�y�k olmal�!					 
+					 Max Heap
+						50
+					/		\
+				30             20					
+			/		\		/		\
+		  15	     10     8    	 16 
+					
+			50,30,20,15,10,8,16		
+Her parent t�m desendentlerinden k���k olmal�!						
+					Min Heap
+						10
+					/		\
+				30             20					
+			/		\		/		\
+		  35	     40    32    	 25 
+
+		  10,30,20,35,40,32,25
+
+
+Heap i�erisine eleman nas�l yerle�tirilir?
+�rnek olarak yukardaki max heapimize 60 say�s�n� eklemeye �al��t���m�z� d���nelim
+Peki bu durumda nas�l bir algoritma izlemeliyiz?
+Complete binary tree ve heap durumunu bozmamak i�in �ncelikle son elemana say� eklenir.
+50,30,20,15,10,8,16,60
+Burada ger�ekle�ek i�lemler parent ve child aras�nda olacakt�r.
+�imdi 60 say�s�n�n parenti kendisinden k���kse yer de�i�tirir.
+50,30,20,60,10,8,16,15
+ayn� i�lem yine ger�ekle�ir
+50,60,20,30,10,8,16,15
+ayn� i�lem yine ger�ekle�ir.
+60,50,20,30,10,8,16,15
+ve g�r�ld��� �zere heap durumu korunmu� oldu ve complete tree yap�s� bozulmam�� oldu.
+Peki eleman silme i�lemi nas�l ger�ekle�iyor?
+Eleman silme i�lemi k�kten ba�lamal�. 
+Nas�l yani k�kten mi?
+�ncellikle k�kteki eleman silinir ve a�a�ta bulunan son eleman k�ke al�n�r.
+Peki bunu neden yap�yoruz? Asl�nda basit her �eyden �nce Complete tree yap�s�n� korumak istiyoruz.
+Geri kalan i�lemler asl�nda olduk�a basit. 
+�imdi olacak i�lemler s�ras�yla �u �ekilde
+rootun childlar� kendi aras�nda k�yaslan�r. B�y�k olan child se�ilir ve rootla yer de�i�tirir.
+peki bir indeksin �ocuklar� nedir. 2i ve 2i+1 dir.
+�rnek olarak 2i nin yerini ald���n� varsayal�m bu sefer �ocuklar 4i 4i+1
+kendi aralar�nda �ocuklar k�yaslan�r en b�y�k olan e�er parentten b�y�kse yer de�i�tirir de�ilse silme i�lemi ba�ar�l� bir �ekilde ger�ekle�mi� olur.
+
+

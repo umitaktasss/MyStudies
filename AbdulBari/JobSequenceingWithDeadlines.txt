@@ -1,0 +1,35 @@
+Son teslim tarihlerine g�re i� plan�
+
+Jobs        J1 J2 J3 J4 J5
+Profits     20 15 10 5  1
+Deadlines    2  2  1 3  3      
+
+Elimizde bir makinenin oldu�unu d���nelim, bu makinenin bu i�leri hallebilece�ini varsayal�m.
+Bu makine yard�m�yla her i�in yap�lmas� gerekti�i �art�n� koyal�m.
+Ve her 1 i� ba��na 1 saat ge�ti�ini varsayal�m. Yani Makinemiz 1 saate 1 i� bitirebiliyormu�.
+M��terilerimizin belirli bir vakite kadar zamanlar�n�n oldu�unu ve bu zaman aral���nda maksimum nas�l
+kar ederiz onu hesaplamaya �al��aca��z.
+Nas�l yani ?
+��yle varsayal�m
+Saat 9:00 da i�ine ba�lad�n ve 12:00 da mesaini bitiryorsun.
+M��teriler s�ras�yla geldi.
+birisi saat 10:00 da i�inin bitmesi gerekti�ini ve bu i� i�in 10 Tl verece�ini s�yl�yor.
+Ayn� �ekilde di�er M��terin 11:00 da i�inin bitmesi gerekti�ini ve bu i� i�in 20 TL verece�ini s�yl�yor.
+Di�er olaylar�da kesi�im �eklinde ald���m�z� varsayal�m.
+Bu s�re zarf�nda maksimum profiti nas�l elde edebilirsin onu g�rmek istiyorsun.
+
+B�ylelikle 4 i� slotumuz olur. Yukardaki her i� 1 saate bitiyor bunu unutmayal�m.
+Yukardaki deadlinelar slotlara g�re verilmi�tir.
+Yani deadline 2 yazmas� bu i�in 9 dan 11 e kadar bitmesi gerekti�ini s�ylemesidir.
+
+Jobs        J1 J2 J3 J4 J5
+Profits     20 15 10 5  1
+Deadlines    2  2  1 3  3    
+             +  +  - +  -
+0__J2___1___J1___2__J4___3
+9     10     11    12
+J2 nin gidebilece�i 2 farkl� yer var. Bu kombinasyonu ele ald���m�zda J1 in ise 1. Ba�l� durumlar.
+Toplam 2 farkl� Durum olu�ur.
+{J1,J2,J4}->PROFIT 40
+{J2,J1,J4}-> PROFIT 40
+

@@ -1,0 +1,52 @@
+Huffman Coding
+Message-> BCCABBDDAECCBBAEDDC
+Huffman kodlama tekni�i elde olan verinin b�y�kl���n� azalt�r.
+veya mesaj�n.
+length->20
+ACSII - 8 - BIT
+A 65   01000001
+B 66   01000010
+C 67   01000011
+D 68     ***
+E 69     ***
+8*20=160BITS
+G�r�ld��� �zere e�er bu �ekilde g�nderilirse 160 bitlik mesaj g�ndemri� oluruz.
+Peki bu asci kodlamas� yerine kendi kodumuzu yazabilir miyiz?
+CHARACTER| COUNT/FREQUENCY | CODE
+A			    3            000         
+B		     	5            001         
+C               6            010   
+D               4            011     
+E               2            100  
+                20
+20*3 ten 60 bit elde etmi� oluruz
+5*8 bit        5*3=15
+karakter       kod
+40+15=55
+mesage-60bit
+table-55 bit             160*a/100=115 a yakla��k %28,5 yani bu kadar space kazand�k.
+115 bit
+
+_ bit i�in 2 farkl� durum
+__ bit i�in 4 farkl� durum
+___ bit i�in 8 farkl� durum
+Peki biz bunu kodlad�k reciver(al�c�) bunu nas�l alg�layacak?
+Belki B yerine Q geldi veya D yerine M kar��daki ki�i bunu nas�l anlayacak?
+Daima mesaj� kar��daki ki�i anlayabilsin diye tablo �eklinde olu�tur
+
+Peki kodlama k�sm�nda nas�l bir mant�k izlemeliyiz?
+�ncellikle elimizdeki mesaj�n i�erisindeki karakterler ka� defa mesaj�n i�inde ge�iyor bunu bulmal�y�z.
+Ondan sonra elde etti�imiz mesaj say�lar�n� k���kten b�y��e do�ru s�ralamal�y�z.
+Daima K���k iki par�ay� birle�tir ve bunlar� Node haline getir.
+B�ylelikle
+A 001    3*3=9
+B 10      5*2=10
+C 11      6*2=12
+D 01      4*2=8
+E 000    3*2=6
+  12bit   45 bits
+          8*5=40 bit asci i�in
+               12     
+               45+40+12=97 bit
+�eklinde tablomuz olu�ur.
+Decoding i�leminin tamamlanabilmesi i�in burada tabloyuda g�ndermemiz gerekli!!

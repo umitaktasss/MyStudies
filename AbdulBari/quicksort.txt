@@ -1,0 +1,106 @@
+Quick sortu anlayabilmek i�in basit bir �ekilde s�n�fta bulunan ��rencilerin boylar�n� �rnek alal�m.
+
+Herkes boy s�ras�na g�re s�ralan�rsa:
+[165,155,175,157,190,150,152]
+150 boyundaki arkada��m�z en k�sa boylu oldu�unu biliyor.
+ayn� �ekilde en uzun olanda biliyordur.
+[150,165,155,175,157,152,190]
+daha sonra bu ��renciler kendi aralar�nda k�yaslama yaps�n.
+157 boyundaki arkada� yan�ndaki 175 boyundaki arkada�la kendisini k�yaslayarak yer de�i�tirir ayn� �ekilde sa�daki arkada��nada ayn� �ekilde sordu�unu varsayal�m.
+
+10 80 90 30 20 
+10 zaten s�ralanm��
+6 3 5 4 2 1 9 
+9 zaten s�ral�
+4 6 7 10 10 12 13 14
+10 zaten s�ral�.
+Quick sortun mant���:
+Bir element zaten s�ralanm�� olsun ve e�er bu elementin solunda bulunan say�lar bu elementen k���kse 
+ve ayn� �ekilde sa� taraftaki elementler bu say�dan b�y�kse 
+
+
+
+A[10,16,8,12,15,6,3,9,5,infinty(max)]
+   low                          high
+
+pivot: 10 �uanki amac�m�z 10 acaba nerede tamamen s�ral�d�r?
+ i noktam�z� pivottan ba�lat�yoruz ve j noktam�z� sonsuzdan ba�lat�yoruz.
+ i noktam�z pivottan b�y�k elemanlar i�in bakacak
+ j noktam�z ise pivottan k���k elemanlar i�in bakacak
+
+i eleman�m�z 16 noktas�nda duracak
+j eleman�m�z 5 noktas�nda duracak
+ve de�i�imler ger�ekle�ecek
+A[10,5,8,12,15,6,3,9,16,infinty(max)]
+   low                          high
+daha sonra i eleman�m�z gezinmeye devam edecek,
+8<10 olmaz 12>10 durdu.
+daha sonra j eleman�m�z devam edecek
+9<10 durdu.
+9 ve 12 nin yeri de�i�ir
+i devam ediyor
+15>10 dur
+j devam ediyoruz.
+3<10 dur.
+15 ve 3 �n yerini de�i�tir
+i devam eder.
+6<10 devam 15<10 dur.
+j devam eder.
+6<10 dur.
+Bu noktada dur de�i�im yapma neden mi i j den daha b�y�k bir de�ere ula�t�!
+Bu noktada j nin bulundu�u eleman� ve pivotun bulundu�u eleman� de�i�tir.
+10 ve 6 yer de�i�tirir. listemizin durumu
+A[6,5,8,9,3,10,15,12,16] 10 nun yeri bulundu s�raland�.
+
+
+�imdi bunun rek�rsif bir �ekilde algoritmas�n� yazal�m.
+
+Partition(low,high){
+
+	pivot = A[low]
+	i=low,j=high
+	
+	
+while(i<j)
+	do{
+		i+=1
+	}
+	while(A[i]<=pivot);
+	do{
+	j--;
+	}
+	while(A[j]>pivot){
+	i+=1
+	}
+	if(i<j)
+	swap(A[i],A[j])
+
+}
+	swap(A[low],A[j])
+	return j;
+
+QuickSort(low,high)
+	if(l<h)
+	{
+		j = partion(l,h)
+		QuickSort(l,j);
+		QuickSort(j+1,h);
+	}
+Quick Sort:
+En iyi:O(nlogn)
+Ortalama Durum:O(nlogn)
+En k�t�: O(n^2)
+
+**Ek bir haf�za alan� gerektirmez.
+**Verilerin rastgele s�ral� oldu�u durumlarda h�zl� �al���r.
+**Haf�za kullan�m� minimize edilmek istendi�inde, genellikle yerinde �al��an bir s�ralama
+algoritmas�d�r.
+**K���k bellek alan� ve h�zl� s�ralama gereken durumlar i�in idealdir.
+
+Tim sort:
+**Ger�ek d�nya verilerinde (�rnek, co�u k�smen s�ral� listelerde) daha iyi performans g�sterir.
+En k�t� durumda bile QuickSort'tan daha iyidir. O(nlogn)
+Stabil s�ralama gerekti�inde (�rne�in, ayn� de�erlere sahip ��elerin s�ras� korunmal�ysa) daha uygundur.
+
+
+

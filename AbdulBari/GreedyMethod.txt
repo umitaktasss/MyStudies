@@ -1,0 +1,37 @@
+Açgözlü yaklaşım
+Bir şeyi olabildiğince iyi hale getirme sürecidir. Bu yaklaşım hem minimum sonucu ve maximum sonucu içerir.
+P: A--->B
+A noktasından B noktasına seyehat etmek istiyoruz.
+Yürüyerek, Uçarak, Trenle, Arabayla, Gemiyle veya farklı bir araçla .....
+Ama sorun şurada buradaki seçeneklerdeki yolculuk süreleri tamamen farklı.
+Ve belkide sorunumuzu çözecek durum sadece (belirli bir vakitte olmak istediğimiz yere varmamız gerektiğini düşünelim)
+birkaç çözüm sağlıyordur. Evet birden fazla çözüm olabilir ama hangisi benim ihtiyacım için en iyisi?
+Tabii ki istediğimiz duruma göre çözümler değişmektedir.
+Örnek olarak:
+Yürümek: Bedava - 100 saat
+Uçak: 2500TL - 1 saat
+Tren: 150tl -  5 saat
+Otobüsle: 350 TL - 3 saat
+Gemiyle: 175TL 6 saat
+Görüldüğü gibi eğer vakit bizim için sorun değilse ve en düşük maaliyete yol açacak durumu seçersek yürümek en mantıklısı duruyor.
+Ama böyle bir şeyi birinin isteyeceğini düşünmüyorum neyse
+Hem saat hem maaliyeti ele alırsak.(500tlden az, 6 saaten az vakitte gitmek istediğimiz yere ulaşmayı varsayıyorum)
+Bu durumda Tren en mantıklı seçim olacaktır.
+Optimizasyon problemleri hem minimum sonuç ve maximum sonucu içerir.
+
+
+Optimizasyon problemlerine yaklaşımlar
+1-Greedy  method
+2-Dynamic Programing
+3-Branch and Bound
+
+Algorithm Greedy (a, n)
+for i to n do
+x= select(a);
+if feasible(x) then
+solution+=x
+
+Sonuçları değerlendir eğer istediğimizse sonuçlara ekle değilse devam.
+a problem için verilmiş inputlar, n ise bu inputların dizisinin uzunluğu. kısacası dizi uzunluğu.
+
+

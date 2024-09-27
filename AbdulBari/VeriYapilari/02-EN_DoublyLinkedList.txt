@@ -1,0 +1,210 @@
+What is the different between single linked list and doubly linked list?
+The advantage of doubly linked list is that given node in the list, we can navigate in both directions.
+In doubly list we can delete node if we don't have the previous node's adress (since each node has a left pointer pointing to the previous node and can move backward)
+
+The primary disadvantages of doubly linked lists are:
+	*  Each node requires an extra pointer, requiring more space.
+	*  The inserion or deletion of a node takes a bit longer (more pointer operations)
+
+The instructions are similar with a singly linked list. 
+
+#Structure of the node
+class Node:
+	def __init__(self,data)
+	self.data = data
+	self.next = None
+	self.previous = None
+
+Inserting a new element into doubly linked list
+
+	At the begining
+	In this case, new node is inserted before the head node. Previous and next pointers need to be modified and it can be done in two steps:
+		First Update the right pointer of the new node to point to the current head node and also make left pointer of new node as NULL.
+		Update head node's left pointer to point to the new node and make new node as head.
+	class DoublyLinkedList:
+		def __init__(self):
+		self.head = None
+		self.tail = None
+
+		def insert_beginning(self, data):
+			new_node = Node(data)
+			if self.head is None:
+				self.head = new_node
+				self.tail = new_node
+				return
+			new_node.next = self.head
+			self.head.previous = new_node
+			self.head = new_node
+
+
+	At the end:
+	In this case we use the tail node.
+		*New node right points to NULL and left pointer points to the tail.
+		*Update right pointer of the tail.
+		*Update tail to the last pointer.
+
+		def insert_end(self, data):
+			new_node = Node(data)
+			if self.head is None:
+				self.head = new_node
+				self.tail = new_node
+				return
+			new_node.next = None
+			new_node.previous = self.tail
+			self.tail.next = new_node
+			self.tail = new_node
+
+	At the middle:
+	As the same in singly lists, traverse the list until the position node and insert the new node.
+		*New node right points to the next node of the position node where we want to insert the new node. Also, new node left pointer points to the position node.
+		*Position node right points to the new node and the next node of position node left pointer points to new nodeç
+		def insert_position(self, data, position):
+		new_node = Node(data)
+		if self.head is None:
+			self.head = new_node
+			self.tail = new_node
+			return
+		if position == 0:
+			self.insert_beginning(data)
+			return
+		current = self.head
+		index = 0
+
+		while current is not None and index < position:
+			position_prev = current
+			current = current.next
+			index += 1
+
+		if current is None:
+			self.insert_end(data)
+			return
+		new_node.next = current
+		new_node.prev = position_prev
+		position_prev.next = new_node
+		current.prev = new_node
+
+		Doubly Linked List Deletion
+		Similar to singly linked list deletion
+
+		Deleting first node
+			*In thic case the head node is removed from the list can be done two steps:
+				Create a temporary node which will point to the same node as that of head.
+				Then move the head nodes pointer to the next node and chage the heads left pointer to NULL, Then dispose of the temporary node.
+			def delete_beginning(self):
+				if self.head is None:
+					print("The list is empty.")
+					return
+				#If only one element in the list
+				if self.head.next is None:
+					del self.head
+					self.head = None
+					self.tail = None
+					return
+				temp = self.head
+				self.head = self.head.next
+				self.head.previous = None
+				del temp
+
+		Deleting Last Node
+			*Access to the tail node, create temporary tail which holds the last node. update the tail to previous node.
+			Now set the tail of previous node to null. dispose temporary tail.
+
+			def delete_end(self):
+				if self.head is None:
+					print("The list empty.")
+					return
+				if self.tail.previous is None and self.head.next is None:
+					del self.head
+					self.head = None
+					self.tail = None
+					return
+
+				temp = self.tail
+				self.tail = self.tail.previous
+				self.tail.next = None
+				
+				del temp
+
+		Delete at position:
+		In this case, the node to be removed is always located between two nodes, and the head and tail links are not updated.
+		The removal can be done in two steps:
+			Find the node to be deleted, maintain the previous node which before the node to be deleted. 
+			Change the previous node's next pointer to the next node of the node to be deleted.
+
+		def delete_position(self, position):
+			
+			if self.head is None:
+				print("The list empty.")
+				return
+			if position == 0:
+				self.delete_beginning()
+				return
+			current = self.head
+			prev = None
+			index = 0
+			while current.next is not None and index < position:
+				prev = current
+				current = current.next
+				index += 1
+			if current is None:
+				print("Position out of bounds.")
+				return
+
+			if current.next is None:
+				self.tail = prev
+				prev.next = None
+			else:
+				prev.next = current.next
+				current.next.prev = prev
+
+			del current
+			
+
+			Auxiliary Methods for Doubly Linked List
+
+			def find_element(self,data):
+				current = self.head
+				index = 0
+				while current is not None:
+					if current.data == data:
+						print(f"Element '{data}' found at index {index}.")
+						return True, index
+					current = current.next
+					index +=1
+				print(f"Element '{data}' not found in the list")
+				return False, -1 #Element not found
+
+			def display(self):
+				current = self.head
+					if current is None:
+						print("The list is empty")
+						return
+				while current:
+					print(current.data, end = "<->" if current.next else "\n")
+					current = current.next
+
+			def count_list(self):
+				current = self.head
+				count = 0
+				while current is not None:
+					count +=1
+					current = current.next
+				return count
+
+			def delete_list(self):
+
+			current = self.head
+			while current:
+				auxiliary_node = current.next
+				print(f"Deleting node with data: {current.data}")
+				del current
+				current = auxilary_node
+
+				self.head = None
+				self.tail = None
+				print("The entire list has been deleted!")
+						
+
+
+
+
