@@ -154,11 +154,9 @@ class CircularLinkedList:
 
         # Example usage of CircularLinkedList
 def example_usage():
-    # Create a circular linked list
     cll = CircularLinkedList()
     print("Circular Linked List created.")
 
-    # Insert nodes at the end
     cll.insert_end(10)
     print("Inserted 10 at the end.")
     cll.insert_end(20)
@@ -166,60 +164,55 @@ def example_usage():
     cll.insert_end(30)
     print("Inserted 30 at the end.")
 
-    # Display the list
     print("\nDisplaying the current list:")
     cll.display_list()
 
-    # Insert a node at the beginning
     cll.insert_beginning(5)
     print("\nInserted 5 at the beginning.")
 
-    # Display the list
     print("\nDisplaying the updated list:")
     cll.display_list()
 
-    # Count the nodes in the list
     print("\nCounting the nodes in the list:")
     length = cll.list_length()
     print(f"Total nodes in the list: {length}")
 
-    # Delete the first node
+    
     cll.delete_firstNode()
     print("\nDeleted the first node.")
 
-    # Display the list
+   
     print("\nDisplaying the list after deleting the first node:")
     cll.display_list()
 
-    # Delete the last node
+    
     cll.delete_lastNode()
     print("\nDeleted the last node.")
 
-    # Display the list
+    
     print("\nDisplaying the list after deleting the last node:")
     cll.display_list()
 
-    # Delete a node at a specific position
+    
     print("\nDeleting node at position 1:")
     cll.delete_node_position(1)
 
-    # Display the list
+    
     print("\nDisplaying the list after deleting node at position 1:")
     cll.display_list()
 
-    # Count the nodes again
+    
     print("\nCounting the nodes in the list after deletions:")
     length = cll.list_length()
     print(f"Total nodes in the list: {length}")
 
-    # Delete all nodes
+    
     cll.delete_all()
     print("\nDeleted all nodes.")
 
-    # Attempt to display the empty list
     print("\nDisplaying the list after deleting all nodes:")
     cll.display_list()
 
 
-# Run the example usage
+
 example_usage()
