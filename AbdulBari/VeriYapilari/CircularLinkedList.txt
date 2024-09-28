@@ -1,0 +1,240 @@
+What do we need circular linked list?
+Efficient Traversal in a Circular Manner:
+In circular linked list, It doesn't have an end, while traversing in the list 
+should be careful otherwise we will be traversing the list infinitely.
+Each node has a successor. There is no node with NULL pointer in a circularly linked list.
+
+In some situations, circular linked lists are useful.
+
+For example, when several processes are using the same computer resource (CPU) for the same amount of time,
+we have to assure that no process accesses the resource before all other processes do (round robin algortihm).
+
+
+
+In circular linked list, we access the elements using the head node (similar to head node in signly linked list and doubly)
+class Node:
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+Counting Nodes in a Circular Linked List
+
+To count the nodes, the list has to be traversed from the node marked head, with the help of a temporary node current,
+and stop counting when current reaches the starting node head.
+
+class CircularLinkedList:
+	def __init__(self):
+		self.head = None
+
+
+	def list_length(self):
+		if self.head is None:
+			print("The list is empty.")
+		count = 0
+		current = self.head
+		while True:
+		count += 1
+		current = current.next
+		#When it reaches to head, it stops.
+		if current == self.head:
+			break
+		return count
+Time complexity: O(n), for scanning the complete list of size n.
+Space complexity:O(1), for creating one temporary variable.
+
+
+To Display the Elements of a Circular Linked List
+
+Let's assume we have a circular linked list and being accessed by its head node.
+Let us assume we want to print the cotnents of the nodes starting with the head node.
+Print its contents move to the next node and continue printing till we reach the head node again.
+
+
+def display_list(self):
+	if self.head is None:
+		print("The list is empty.")
+		return
+	current = self.head
+
+
+	while True:
+		print(current.data, end = "->")
+		current = current.next
+		if current == self.head:
+			break
+	print("Head") #To show it's circular.
+
+Time Complexity: O(n), for scanning the complete list of size n.
+Space Complexity: O(1), for temporary variable.
+
+
+Inserting a Node at the end of a Circular Linked List
+
+Let assume we add a node at the end of a list (circular list) headed by head.
+The new node will be placed just after the tail node(which is the last node of the list),
+which means it will have to be inserted in between the tail node and the first node.
+
+	* Create a new node and initially keep its next pointer pointing to itself.
+	* Update the next pointer of the new node with the head node and also traverse the list to the tail.
+	  We gotta find the end node whose next node is head.
+	* Update the next pointer of the previous node to poin to the new node.
+
+def insert_end(self, data):
+	new_node = Node(data)
+	new_node.next = new_node
+	if self.head is None:
+		self.head = new_node
+		return
+
+	new_node.next = self.head
+	current = self.head
+	while current.next != self.head:
+		current = curent.next
+	
+	current.next = new_Node
+
+
+	
+Time Complexity: O(n), for scanning the complete list of size n.
+Space Complexity: O(1), for temporary variable.
+
+Inserting a Node at the Front of a Circular Linked List
+
+We got only one difference between inserting a node at the beginning and at the end.
+After inserting the new node, we just need to update the pointer.
+	
+	* Create a new node and initially keep its next pointer pointing to itself.
+	* Update the next pointer of the new node with the head node and also traverse the list until the tail.
+	* Update the previous head node in the list to point to the new node.
+	* Make the new node as the head.
+
+def insert_beginning(self, data):
+	new_node = Node(data)
+	new_node.next = new_node
+	if self.head is None:
+		self.head =new_node
+		return
+	
+	current =self.head
+	while current.next != self.head:
+		current = current.next
+	new_node.next = self.head
+	current.next = new_node
+	self.head = new_node
+
+
+Time Complexity: O(n), for scanning the complete list of size n.
+Space Complexity: O(1), for temporary variable.
+
+
+Deleting the Last Node in a Circular Linked List:
+	The list has to traversed until reach the previous tail node. NOT TAIL. we need the node that right before the tail.
+	pTail(previous tail) 
+		*Traverse the list and find the tail node and its previous node.
+		*Update the next pointer of tail node's previous node to point to head.
+		*Delete the tail.
+
+def delete_lastNode(self):
+	if self.head is None:
+		print("List is empty.")
+		return
+	tail = self.head
+	ptail = None
+	while tail.next != self.head:
+		ptail = tail
+		tail = tail.next
+
+	ptail.next = current.next
+	del current
+	return
+
+
+Deleting the First Node in a Circular List
+
+* Find the tail node of the linked list by traversing the list. 
+* Create a temporary node which will point to the head. Also, update the tail nodes
+	next pointer to point to next node of head.
+* Now, move the head pointer to next node. Create a temporary node which will point to head.
+	Update the tail nodes next pointer to point to next node of head.
+
+def delete_firstNode(self):
+	if self.head is None:
+		print("List is empty.")
+		return
+	current = self.head
+
+	while current.next != self.head:
+		current = current.next
+
+	if self.head == current:
+		self.head = None
+	else:
+		
+
+		temp = self.head
+		current.next = self.head.next
+		self.head = self.head.next
+
+		del temp
+
+
+Deleting Node at position:
+	The node to be removed has to between two nodes.
+	We need two pointer to traverse in the list. Two pointer which points the node to be deleted and other is the node right before the node to be deleted.
+
+	* Keep traverse at the exact point: Once we find the node to be deleted, change the previous node's next pointer to next pointer of the node to be deleted.
+	* Dispose of the current node to be deleted.
+
+def delete_node_position(self, position):
+	if self.head is None:
+		print("List is empty.")
+		return
+	if position == 0:
+		self.delete_firstNode()
+		return
+	current = self.head
+	previous = None
+	index = 0
+	
+	while current.next =! self.head and index < position:
+			
+		previous = current
+		current = current.next
+		index +=1
+
+	if current.next == self.head and index != position:
+		 print("Position out of bounds.")
+		 return
+
+	if current.next == self.head:
+		self.delete_lastNode()
+		return
+
+	previous.next = current.next
+
+	del current
+To delete complete list 
+	* Create temporary pointer which points the head.
+	* To traverse through the circular linked list, update the head to the next node each time, and delete the current node to clear the entire list. 
+
+
+def delete_all(self):
+    # Step 1: Check if the list is empty
+    if self.head is None:
+        print("List is already empty.")
+        return
+
+    # Step 2: Initialize a pointer to start from the head
+    current = self.head
+
+    # Step 3: Traverse and delete nodes until the entire list is empty
+    while current.next != self.head:
+        next_node = current.next  # Save the next node
+        self.head = next_node  # Move head to the next node
+        del current  # Delete the current node
+        current = next_node  # Update current to the next node
+
+    # Step 4: Delete the last remaining node (self.head)
+    del self.head
+    self.head = None  # Set head to None to indicate the list is empty
+    print("All nodes have been deleted.")

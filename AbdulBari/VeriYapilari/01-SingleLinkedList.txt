@@ -246,7 +246,7 @@ delete temp_tail
 Deleting Node at position:
 
 	In this case, the node to removed has to be between two nodes.
-		We need two pointer to traverse in the list. Two pointer which points the node to be deleted and other is the node right before the node to deleted.
+		We need two pointer to traverse in the list. Two pointer which points the node to be deleted and other is the node right before the node to be deleted.
 		First keep traverse at the exact point: Once we find the node to be deleted, change the previous node's next pointer to the next pointer of the node to be deleted.
 		dispose of the current node to be deleted.
 
