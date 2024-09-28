@@ -152,7 +152,6 @@ class CircularLinkedList:
         self.head = None
         print("All nodes have been deleted.")
 
-        # Example usage of CircularLinkedList
 def example_usage():
     cll = CircularLinkedList()
     print("Circular Linked List created.")
