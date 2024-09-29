@@ -1,0 +1,32 @@
+A memory efficent doubly linked list.
+
+Thanks to journal Prokash Sinha. He presented an alternative implementation of the doubly linked list ADT, with insertion traversal and deletion operations.
+This implementation is based on pointer difference. Each node uses only one pointer field to traverse the list back and forth.
+
+class Node:
+	def __init(self, data):
+		self.data = data
+		self.ptrdiff = ptrdiff
+
+
+ptrdiff = pointer to previous node XOR pointer to next node.
+XOR GATE
+
+Input A			Input B		Output
+  0				   0           0
+  0                1           1
+  1                0           1
+  1                1           0
+  
+  Why does it work?
+
+  X ⊕ X=0
+  X ⊕ 0 = X
+  X ⊕ Y = Y ⊕ X (symmetric)
+ (X ⊕ Y) ⊕ Z = X ⊕ (Y ⊕ Z) (transitive)
+
+ For example, let us assume that we are at C node and want to move to B. We know that C's ptrdiff is defined as B ⊕ D. If we want to move to B, performing ⊕ on C's ptrdiff with D
+ would give B. This is due to the fact that:
+ (B⊕D) ⊕ D = B since D ⊕ D = 0
+ Similarly if we want to move to D, then we have to apply ⊕ to C's ptrdiff with B to give D.
+

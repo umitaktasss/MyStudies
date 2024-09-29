@@ -1,0 +1,12 @@
+Unrolled linked lists
+
+One of the biggest advantages of linked lists over arrays is that inserting an element at any location takes only O(1) time. However, it takes O(n) to search for an
+element in a linked list. There is a simple varation of the singly linked list called unrolled linked lists.
+
+**An unrolled linked list stores multiple elements in each node. In each block, a circular list is used to connect all nodes.
+
+Assume that there will be no more than n elements in the unrolled linked list at any time. To simplify this problem, all blocks, except the last one, should contain exactly 
+ceiling n^(1/2). 
+
+Searching for an element in Unrolled Linked lists:
+	In unrolled linked lists, we can find the k^th element in O(n^(1/2))

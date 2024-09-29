@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>d197ccee-c6d9-4ca0-b6d7-6cdc238aa410</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>VeriYapilari\04-CircularLinkedList.py</StartupFile>
+    <StartupFile>VeriYapilari\03-XORLinkedList.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,44 +21,51 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="02-Merge.py" />
-    <Compile Include="02-MergeSort.py" />
-    <Compile Include="04-MatrixMultiplication.py" />
-    <Compile Include="05-HeapTree.py" />
-    <Compile Include="07-JobSequences.py" />
-    <Compile Include="08-Jobsequences2.py" />
-    <Compile Include="09-OptimalMerge.py" />
+    <Compile Include="Algorithms\02-Merge.py" />
+    <Compile Include="Algorithms\02-MergeSort.py" />
+    <Compile Include="Algorithms\04-MatrixMultiplication.py" />
+    <Compile Include="Algorithms\05-HeapTree.py" />
+    <Compile Include="Algorithms\07-JobSequences.py" />
+    <Compile Include="Algorithms\08-Jobsequences2.py" />
+    <Compile Include="Algorithms\09-OptimalMerge.py" />
     <Compile Include="AbdulBari.py" />
-    <Compile Include="01-BinarySeach.py" />
-    <Compile Include="03-QuickSort.py" />
-    <Compile Include="06-KnapSack.py" />
-    <Compile Include="10-Huffman.py" />
+    <Compile Include="Algorithms\01-BinarySeach.py" />
+    <Compile Include="Algorithms\03-QuickSort.py" />
+    <Compile Include="Algorithms\06-KnapSack.py" />
+    <Compile Include="Algorithms\10-Huffman.py" />
     <Compile Include="BasitProjeler\Library.py" />
     <Compile Include="BasitProjeler\Library_a.py" />
-    <Compile Include="JobSequenceingWithDeadlines.txt" />
-    <Compile Include="11-PrimsandKruskals.py" />
+    <Compile Include="Algorithms\TR_Anlatim\JobSequenceingWithDeadlines.txt" />
+    <Compile Include="Algorithms\11-PrimsandKruskals.py" />
     <Compile Include="VeriYapilari\01-SingleLinkedList.py" />
     <Compile Include="VeriYapilari\02-DoublyLinkedList.py" />
     <Compile Include="VeriYapilari\03-XORLinkedList.py" />
     <Compile Include="VeriYapilari\04-CircularLinkedList.py" />
+    <Compile Include="VeriYapilari\05-UnrolledLinkedList.py" />
     <Compile Include="VeriYapilari\SingleLinkedList.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PrimveKurskalinalgoritmasi.txt" />
+    <Content Include="Algorithms\EN_Explainedtxt\01-BinarySearch.txt" />
+    <Content Include="Algorithms\TR_Anlatim\PrimveKurskalinalgoritmasi.txt" />
+    <Content Include="VeriYapilari\03-A_Memory_Efficient_DoublyLinkedList.txt" />
     <Content Include="VeriYapilari\CircularLinkedList.txt" />
     <Content Include="VeriYapilari\02-EN_DoublyLinkedList.txt" />
     <Content Include="VeriYapilari\TR_DoublyLinkedList.txt" />
     <Content Include="VeriYapilari\heap.txt" />
-    <Content Include="HuffmanCoding.txt" />
-    <Content Include="mergesort.txt" />
-    <Content Include="OptimalMergePattern.txt" />
-    <Content Include="quicksort.txt" />
-    <Content Include="RecurrenceRelation.txt" />
-    <Content Include="StrassensMatrixMultiplication.txt" />
+    <Content Include="Algorithms\TR_Anlatim\HuffmanCoding.txt" />
+    <Content Include="Algorithms\TR_Anlatim\mergesort.txt" />
+    <Content Include="Algorithms\TR_Anlatim\OptimalMergePattern.txt" />
+    <Content Include="Algorithms\TR_Anlatim\quicksort.txt" />
+    <Content Include="Algorithms\TR_Anlatim\RecurrenceRelation.txt" />
+    <Content Include="Algorithms\TR_Anlatim\StrassensMatrixMultiplication.txt" />
     <Content Include="VeriYapilari\01-SingleLinkedList.txt" />
+    <Content Include="VeriYapilari\UnrolledLinkedList.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Algorithms\EN_Explainedtxt\" />
+    <Folder Include="Algorithms\TR_Anlatim\" />
     <Folder Include="BasitProjeler\" />
+    <Folder Include="Algorithms\" />
     <Folder Include="VeriYapilari\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
