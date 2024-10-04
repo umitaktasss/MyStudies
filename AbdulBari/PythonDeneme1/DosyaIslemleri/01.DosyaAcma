@@ -1,0 +1,10 @@
+Bir dosyayý açmak için open() fonksiyonunu kullanýrýz
+open(dosya_adi,dosya_eriþme_kipi)
+"w" dosya kipi
+dosyalarimi açmak için ve dosyalarýma yazmak için "write" anlamýna gelen "w" kipini kullanýrýz."w" kipi eðer oluþturmak
+istediðimiz dizide öyle bir dosya yoksa dosyayý oluþturuyor, eðer öyle bir dosya varsa dosyayý silip tekrar oluþturuyor.
+Yani, Eðer açmak istediðimiz bir dosyadan zaten varsa ve dosyanýn içi doluysa "w" kipi dosyadaki bilgileri silip tekrar oluþturacaktýr.
+(Biraz tehlikeli)
+"a" kipiyle Dosyalara Yazmak
+"append" "a" ekleme kipiyle bir dosyayý actýgýmýzda, dosya eger yoksa olusturulur. Eger oyle bir dosya mevcut ise, dosya tekrar olusturulmaz
+ve dosya imleci	dosyanýn sonuna kadar giderek ekleme yapmamýzý saglar

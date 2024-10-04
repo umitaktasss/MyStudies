@@ -1,0 +1,4 @@
+map fonksyionu
+map(fonsiyon,iterasyon yapýlabilecek veritipi(liste,demet,vb),....)
+map() fonksiyonu ile parametre olarak bir tane fonksiyon objesi alýr. (Fonksiyonlar da birer obje olduðu için baþka bir fonksiyona gönderebilir.) 2. parametre oalrakda bir tane
+iterasyon yapýlacak veritipi alarak, gönderilen fonksiyonu her bir eleman üzerine uygulayarak sonuçlarý bir map objesi olarak döner.

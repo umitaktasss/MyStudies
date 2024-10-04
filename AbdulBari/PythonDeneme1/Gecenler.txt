@@ -1,0 +1,10 @@
+John Doe----------------->BB
+Jane Smith----------------->BB
+Alex Johnson----------------->AA
+Emily Brown----------------->BB
+Mike Wilson----------------->BA
+Sarah Jones----------------->AA
+Chris Lee----------------->BB
+Amanda Davis----------------->BA
+David Martinez----------------->BB
+Lisa Taylor----------------->FD

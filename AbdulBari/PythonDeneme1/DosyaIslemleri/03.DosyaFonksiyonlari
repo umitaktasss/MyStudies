@@ -1,0 +1,20 @@
+Dosyalarý otomatik kapatma
+Dosyalarda iþlemlerimiz bittiði zaman dosyamýzý kapatmamýz gerektiðini biliyoruz.
+Ancak programcýlýk doðasý gereði çoðu zaman dosyalarýmýzý kapatmayý unutabiliriz.
+Bunun için pythonda dosyalarda iþimiz bitince otomatik kapatma özelliði bulunuyor Bundan sonra pythonda dosya
+iþlemlerimizi þu blok içinde yapacaðýz.
+with open(dosya_Adý,dosya_kipi) as file
+	Dosya iþlemleri
+
+Dosyalari Ýleri Geri Sarmak
+Dosya imlecini(file) dosyasýnýn herhangi bir yerine gotürmek isteyebiliriz.
+Bunun için seek() fonksiyonuynu kullanacaðýz. ama ondan önce hangi byteda olduðunu gösteren tell()
+fonksiyonunu kullanalým
+seek() ve write()
+Eðer biz dosyanýn belli bir yerine seek() fonksiyonu ile gidip write() fonksiyonunu kullanýrsak, yazdýðýmýz deðerler öncesinde bulunan deðerlerin
+üzerinde yazýlacaktir. Bunun için hem okuma hem de yazma iþlemimizi yapmamýzý saðlayan "r+" kipini kullanacaðýz.
+
+Dosyanýn sonunda deðiþiklik yapmak
+Bu iþlemlerin en kolayýyla baþlayalým. Dosyalarýn sonunda deðiþiklik yapmak istiyorsak, dosyamýzý "a" kipiyle açalým
+ve sadece dosyanýn sonuna write() ile ekleme yapalým
+Dosyanýn ortasýnda Deðiþiklik için readlines()

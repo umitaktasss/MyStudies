@@ -18,7 +18,7 @@ class library():
         self.create_connection()
         
     def create_connection(self):
-        self.con = sqlite3.connect("library.db")
+        self.con = sqlite3.connect(r"C:\Users\Tulpar\Desktop\Algorithm\AbdulBari\AbdulBari\PythonDeneme1\PythonApplicationa\Library.db")
         self.cursor = self.con.cursor()
         
         table = '''

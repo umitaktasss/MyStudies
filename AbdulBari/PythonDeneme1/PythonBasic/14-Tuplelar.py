@@ -1,0 +1,10 @@
+#Demetlerin listelerden en belirgin farklarýndan biri demetler deðiþtirilemezler!
+demet=(1,2,3,4,5,6,7)
+print(demet,type(demet))
+print(demet[3])
+print(demet[1:5])
+demet2=(1,1,1,1,1,1,1,1,1,1,5,5,5,5,3,2,3,2,3,3,3,1)
+print(demet2.count(1))
+print(demet2.count(3))
+demet3=("Python","Php","C","Java")
+print(demet3.index("Python"))

@@ -1,0 +1,10 @@
+John Doe,85,90,80
+Jane Smith,75,85,90
+Alex Johnson,90,88,92
+Emily Brown,82,79,88
+Mike Wilson,88,90,85
+Sarah Jones,95,92,90
+Chris Lee,78,85,80
+Amanda Davis,90,92,88
+David Martinez,85,78,90
+Lisa Taylor,92,95,88

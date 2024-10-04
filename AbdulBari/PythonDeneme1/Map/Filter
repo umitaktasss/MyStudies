@@ -1,0 +1,2 @@
+filter(fonksiyon,iterasyon)
+mantýk olarak reduce ile ayný ama fonksiyon deðerimiz mantýksal bir deðer döner true veya false!

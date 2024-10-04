@@ -1,0 +1,5 @@
+Dosya okuma iþlemleri
+Dosyalari okumak ve verileri almak için "i" kipiyle açtýðýmýz dosya eðer bulunmuyorsa "FileNotFoundError" hatasý dönecektir.
+Þimdi bulduðumuz dizinde bulunan "bilgiler.txt" dosyalarýný açalým
+read() fonksiyonu dosya içeriðini okumamýza yardýmcý olur
+readline() fonksiyonu her çaðrýldýðýnda dosyanýn sadece bir satýrýný okur. her zaman dosya imlecimiz bir satýr atlayarak devam eder.

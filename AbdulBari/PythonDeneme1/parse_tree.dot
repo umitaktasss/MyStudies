@@ -1,0 +1,43 @@
+digraph {
+	Expression
+	VARIABLE_x
+	Expression -> VARIABLE_x
+	"OPERATOR_="
+	Expression -> "OPERATOR_="
+	INTEGER_5
+	Expression -> INTEGER_5
+	"OPERATOR_+"
+	Expression -> "OPERATOR_+"
+	"FLOAT_3.14"
+	Expression -> "FLOAT_3.14"
+	"PUNCTUATION_;"
+	Expression -> "PUNCTUATION_;"
+	KEYWORD_if
+	Expression -> KEYWORD_if
+	"PUNCTUATION_("
+	Expression -> "PUNCTUATION_("
+	VARIABLE_x
+	Expression -> VARIABLE_x
+	"OPERATOR_>"
+	Expression -> "OPERATOR_>"
+	INTEGER_10
+	Expression -> INTEGER_10
+	"PUNCTUATION_)"
+	Expression -> "PUNCTUATION_)"
+	"PUNCTUATION_{"
+	Expression -> "PUNCTUATION_{"
+	VARIABLE_y
+	Expression -> VARIABLE_y
+	"OPERATOR_="
+	Expression -> "OPERATOR_="
+	"FLOAT_2.0"
+	Expression -> "FLOAT_2.0"
+	"OPERATOR_*"
+	Expression -> "OPERATOR_*"
+	VARIABLE_x
+	Expression -> VARIABLE_x
+	"PUNCTUATION_;"
+	Expression -> "PUNCTUATION_;"
+	"PUNCTUATION_}"
+	Expression -> "PUNCTUATION_}"
+}

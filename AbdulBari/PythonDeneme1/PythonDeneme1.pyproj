@@ -1,0 +1,229 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ee036a0f-9c2c-43aa-aa45-095185c00dd9</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>AraYuzGelistirmeBasit\11-NotePad.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>PythonDeneme1</Name>
+    <RootNamespace>PythonDeneme1</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AraYuzGelistirmeBasit\01-Pencere.py" />
+    <Compile Include="AraYuzGelistirmeBasit\02-YaziVeResim.py" />
+    <Compile Include="AraYuzGelistirmeBasit\03-Buton.py" />
+    <Compile Include="AraYuzGelistirmeBasit\04-HorizontalveVerticalBox.py" />
+    <Compile Include="AraYuzGelistirmeBasit\05-ButtonlaraOzellikEkleme.py" />
+    <Compile Include="AraYuzGelistirmeBasit\06-Inputs.py" />
+    <Compile Include="AraYuzGelistirmeBasit\07-Kullanici_girisi.py" />
+    <Compile Include="AraYuzGelistirmeBasit\08-Checkbox.py" />
+    <Compile Include="AraYuzGelistirmeBasit\09-RadioButton.py" />
+    <Compile Include="AraYuzGelistirmeBasit\10-QTextEdit.py" />
+    <Compile Include="AraYuzGelistirmeBasit\11-NotePad.py" />
+    <Compile Include="AraYuzGelistirmeBasit\12-Menu.py" />
+    <Compile Include="CourseOdevleri1\Problem000.py" />
+    <Compile Include="CourseOdevleri1\Problem43.py" />
+    <Compile Include="CourseOdevleri1\Problem44.py" />
+    <Compile Include="CourseOdevleri1\Problem45.py" />
+    <Compile Include="CourseOdevleri1\Problem46.py" />
+    <Compile Include="CourseOdevleri1\Problem47.py" />
+    <Compile Include="CourseOdevleri1\Problem48.py" />
+    <Compile Include="CourseOdevleri1\Problem49.py" />
+    <Compile Include="CourseOdevleri1\Problem50.py" />
+    <Compile Include="CourseOdevleri1\Problem51.py" />
+    <Compile Include="CourseOdevleri1\Problem52.py" />
+    <Compile Include="CourseOdevleri1\Problem53.py" />
+    <Compile Include="Flowers\Main3.py" />
+    <Compile Include="Flowers\Merge.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\Decorator.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\DecoratorlerDevam.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\fixer.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\fixer2.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\FonksiyonlariDonmekveArgGondermek.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\generatorler.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\IciceFonksiyonlar.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\IcIceFonksiyonVeFonksParam.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\Iteratorler.py" />
+    <Compile Include="IleriSeviyeFonksiyonlarDeco\pillow.py" />
+    <Compile Include="IleriSeviyeModuller\DateTime.py" />
+    <Compile Include="IleriSeviyeModuller\InternettenVeriAlma.py" />
+    <Compile Include="IleriSeviyeModuller\OSmodulu.py" />
+    <Compile Include="IleriSeviyeModuller\Sys.py" />
+    <Compile Include="IleriSeviyeVeriTipleri\IleriSeviyeListeler.py" />
+    <Compile Include="IleriSeviyeVeriTipleri\metinDosyaEgzersis.py" />
+    <Compile Include="ModulDeneme\Odev\odev.py" />
+    <Compile Include="ModulDeneme\Odev\odev2.py" />
+    <Compile Include="Projeler\BasitProjeler\BlackJack.py" />
+    <Compile Include="CourseOdevleri1\Problem00.py" />
+    <Compile Include="CourseOdevleri1\Problem001.py" />
+    <Compile Include="CourseOdevleri1\Problem01.py" />
+    <Compile Include="CourseOdevleri1\Problem02.py" />
+    <Compile Include="CourseOdevleri1\Problem03.py" />
+    <Compile Include="CourseOdevleri1\Problem04.py" />
+    <Compile Include="CourseOdevleri1\Problem05.py" />
+    <Compile Include="CourseOdevleri1\Problem06.py" />
+    <Compile Include="CourseOdevleri1\Problem07.py" />
+    <Compile Include="CourseOdevleri1\Problem08.py" />
+    <Compile Include="CourseOdevleri1\Problem09.py" />
+    <Compile Include="CourseOdevleri1\Problem10.py" />
+    <Compile Include="CourseOdevleri1\Problem11.py" />
+    <Compile Include="CourseOdevleri1\Problem12.py" />
+    <Compile Include="CourseOdevleri1\Problem13.py" />
+    <Compile Include="CourseOdevleri1\Problem14.py" />
+    <Compile Include="CourseOdevleri1\Problem15.py" />
+    <Compile Include="CourseOdevleri1\Problem16.py" />
+    <Compile Include="CourseOdevleri1\Problem17.py" />
+    <Compile Include="CourseOdevleri1\Problem18.py" />
+    <Compile Include="CourseOdevleri1\Problem19.py" />
+    <Compile Include="CourseOdevleri1\Problem20.py" />
+    <Compile Include="CourseOdevleri1\Problem21.py" />
+    <Compile Include="CourseOdevleri1\Problem22.py" />
+    <Compile Include="CourseOdevleri1\Problem23.py" />
+    <Compile Include="CourseOdevleri1\Problem24.py" />
+    <Compile Include="CourseOdevleri1\Problem25.py" />
+    <Compile Include="CourseOdevleri1\Problem25a.py" />
+    <Compile Include="CourseOdevleri1\Problem26.py" />
+    <Compile Include="CourseOdevleri1\Problem27.py" />
+    <Compile Include="CourseOdevleri1\Problem28.py" />
+    <Compile Include="CourseOdevleri1\Problem29.py" />
+    <Compile Include="CourseOdevleri1\Problem30.py" />
+    <Compile Include="CourseOdevleri1\Problem31.py" />
+    <Compile Include="CourseOdevleri1\Problem31a.py" />
+    <Compile Include="CourseOdevleri1\Problem32.py" />
+    <Compile Include="CourseOdevleri1\Problem33.py" />
+    <Compile Include="CourseOdevleri1\Problem34.py" />
+    <Compile Include="CourseOdevleri1\Problem35.py" />
+    <Compile Include="CourseOdevleri1\Problem36.py" />
+    <Compile Include="CourseOdevleri1\Problem37.py" />
+    <Compile Include="CourseOdevleri1\Problem38.py" />
+    <Compile Include="CourseOdevleri1\Problem39.py" />
+    <Compile Include="CourseOdevleri1\Problem40.py" />
+    <Compile Include="CourseOdevleri1\Problem41.py" />
+    <Compile Include="CourseOdevleri1\Problem42.py" />
+    <Compile Include="DosyaIslemleri\DosyaAcma01.py" />
+    <Compile Include="DosyaIslemleri\DosyaFonk03.py" />
+    <Compile Include="DosyaIslemleri\DosyaOkuma02.py" />
+    <Compile Include="Flowers\Main.py" />
+    <Compile Include="Flowers\Main2.py" />
+    <Compile Include="Flowers\Random_fiil_Flowers.py" />
+    <Compile Include="Flowers\Simple_Sort.py" />
+    <Compile Include="IleriSeviyeVeriTipleri\IleriSeviyeKumeler.py" />
+    <Compile Include="IleriSeviyeVeriTipleri\IleriSeviyeString.py" />
+    <Compile Include="IleriSeviyeVeriTipleri\SayiVeriTipleri.py" />
+    <Compile Include="Map\AllveAny.py" />
+    <Compile Include="Map\Enumerate.py" />
+    <Compile Include="Map\filter.py" />
+    <Compile Include="Map\mapfunc.py" />
+    <Compile Include="Map\mapfunc_basitornek.py" />
+    <Compile Include="Map\reduce.py" />
+    <Compile Include="Map\Zip.py" />
+    <Compile Include="my_project\gear\create_set.py" />
+    <Compile Include="my_project\gear\gear.py" />
+    <Compile Include="my_project\gear\helpers.py" />
+    <Compile Include="my_project\gear\__init__.py" />
+    <Compile Include="my_project\main.py" />
+    <Compile Include="ModulDeneme\Deneme1.py" />
+    <Compile Include="ModulDeneme\modul1.py" />
+    <Compile Include="OOP\Class.py" />
+    <Compile Include="OOP\Class2.py" />
+    <Compile Include="OOP\Class3.py" />
+    <Compile Include="OOP\Class4.py" />
+    <Compile Include="OOP\Class5.py" />
+    <Compile Include="OOP\Mantik.py" />
+    <Compile Include="Projeler\BasitProjeler\HigherLower.py" />
+    <Compile Include="Projeler\OrtaDuzeyProjeler\SnakeGame.py" />
+    <Compile Include="Projeler\OrtaDuzeyProjeler\TheCoffeMachine.py" />
+    <Compile Include="Projeler\OrtaDuzeyProjeler\TheQuiz.py" />
+    <Compile Include="PythonBasic\01-HelloWorld.py" />
+    <Compile Include="PythonBasic\10-Loop.py" />
+    <Compile Include="PythonBasic\02-Comments.py" />
+    <Compile Include="PythonBasic\04-Datatypes.py" />
+    <Compile Include="PythonBasic\05-InpuntAndOutput.py" />
+    <Compile Include="PythonBasic\06-ArithmeticOperators.py" />
+    <Compile Include="PythonBasic\07-LogicalOperators.py" />
+    <Compile Include="PythonBasic\08-AssignmentOperators.py" />
+    <Compile Include="PythonBasic\09-IfElse.py" />
+    <Compile Include="PythonBasic\11-WhileLoop.py" />
+    <Compile Include="PythonBasic\12-Functions.py" />
+    <Compile Include="PythonBasic\13-Lists.py" />
+    <Compile Include="PythonBasic\14-Tuplelar.py" />
+    <Compile Include="PythonBasic\16-MantiksalDegerler.py" />
+    <Compile Include="PythonBasic\Fonksiyonlar.py" />
+    <Compile Include="PythonBasic\GlobalVeYerelDegiskenler.py" />
+    <Compile Include="PythonBasic\Hatalar.py" />
+    <Compile Include="PythonBasic\In.py" />
+    <Compile Include="PythonBasic\Keywords.py" />
+    <Compile Include="PythonBasic\03-Variables.py" />
+    <Compile Include="PythonBasic\Lambda.py" />
+    <Compile Include="PythonBasic\listcomprehension.py" />
+    <Compile Include="PythonBasic\modul.py" />
+    <Compile Include="PythonBasic\printfonksiyonuvestringformat.py" />
+    <Compile Include="PythonBasic\15-Sozlukler.py" />
+    <Compile Include="PythonBasic\RangeFonksiyonu.py" />
+    <Compile Include="PythonBasic\return.py" />
+    <Compile Include="PythonBasic\VeritipiDonusumleri.py" />
+    <Compile Include="PythonBasic\WhileDongu.py" />
+    <Compile Include="SQLite\01-TabloVeriTaban.py" />
+    <Compile Include="WarmUp\2.derecedendenklemkoku.py" />
+    <Compile Include="WarmUp\ArithmeticOperatorsWarm.py" />
+    <Compile Include="WarmUp\Circle.py" />
+    <Compile Include="WarmUp\oyuncukaydetme.py" />
+    <Compile Include="WarmUp\warm.py" />
+    <Compile Include="word.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CourseOdevleri1\" />
+    <Folder Include="CourseOdevleri1\Text\" />
+    <Folder Include="IleriSeviyeVeriTipleri\" />
+    <Folder Include="Map\" />
+    <Folder Include="ModulDeneme\Odev\" />
+    <Folder Include="my_project\" />
+    <Folder Include="my_project\gear\" />
+    <Folder Include="ModulDeneme\" />
+    <Folder Include="DosyaIslemleri\" />
+    <Folder Include="Flowers\" />
+    <Folder Include="IleriSeviyeFonksiyonlarDeco\" />
+    <Folder Include="IleriSeviyeModuller\" />
+    <Folder Include="AraYuzGelistirmeBasit\" />
+    <Folder Include="SQLite\" />
+    <Folder Include="Projeler\BasitProjeler\" />
+    <Folder Include="Projeler\" />
+    <Folder Include="OOP\" />
+    <Folder Include="Projeler\OrtaDuzeyProjeler\" />
+    <Folder Include="PythonBasic\" />
+    <Folder Include="WarmUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CourseOdevleri1\Text\mailler.txt" />
+    <Content Include="CourseOdevleri1\Text\Poem.txt" />
+    <Content Include="DosyaIslemleri\01.DosyaAcma" />
+    <Content Include="DosyaIslemleri\02.DosyaOkuma" />
+    <Content Include="DosyaIslemleri\03.DosyaFonksiyonlari" />
+    <Content Include="IleriSeviyeVeriTipleri\metin.txt" />
+    <Content Include="Map\Filter" />
+    <Content Include="Map\Map" />
+    <Content Include="Map\Reduce" />
+    <Content Include="PythonBasic\strings.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

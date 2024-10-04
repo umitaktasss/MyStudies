@@ -1,0 +1,4 @@
+Reduce fonksiyonu
+reduce(function, iterasyon yapýlabilen veritipi(liste vb.))
+reduce() fonksiyonu deðer olarak aldýðý fonksiyonu soldan baþlayarak listenin ilk 2 elemanýna uygular ve daha sonra çýkan sonucu listenin 3. elemanýna uygular ve
+bu þekilde devam ederek liste bitince bir tane deðer döner.
