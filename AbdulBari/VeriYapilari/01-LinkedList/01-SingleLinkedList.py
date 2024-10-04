@@ -1,13 +1,37 @@
 class Node:
     #Node initilazed, holds data and has next pointer
-    def __init__(self, data):
+    def __init__(self, data=None,next=None):
         self.data = data
-        self.next = None
+        self.next = next
+    #method for setting the data field on the node
+    def setData(self,data):
+        self.data = data
+    #method for getting the data field of the node
+    def getData(self):
+        return self.data
+
+    #method for setting the next field of the node
+    def setNext(self,next):
+        self.next = next
+
+    #method for getting the next field of the node
+    def getNext(self):
+        return self.next
+
+    #Returns true if the node poins to another node
+
+    def hasNext(self):
+        return self.next != None
+
+
+
+
 
     #Main and Auxiliary Operations
-class LinkedList:
-    #Tail and head initilazed
+class LinkedList(object):
+    #Initilazing a list
     def __init__(self):
+        self.length = 0
         self.head = None
         self.tail = None
 
@@ -31,61 +55,65 @@ class LinkedList:
         return count
 
     # Insert element at the end
-    def insert_end(self, data):
-        new_node = Node(data)  
-        if self.head is None:  
-            self.head = new_node  
-            self.tail = new_node  
-        else:
-            self.tail.next = new_node   
-            self.tail = new_node  
+    def insert_end(self,data):
+         new_node = Node()
+         new_node.data = data
+         if self.tail is None:  # If the list is empty
+            self.head = new_node
+            self.tail = new_node
+         else:
+            self.tail.next = new_node
+            self.tail = new_node
+         self.length += 1
 
     #Insert element at the beginning
     def insert_at_beginning(self,data):
-        new_node = Node(data)
-        if self.head is None:
+        new_node = Node()
+        new_node.data= data
+        if self.length ==0:
             self.head = new_node
             self.tail = new_node
-            return
-
-        new_node.next = self.head
-        self.head = new_node
-        
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length +=1
         # Insert element at a specific position
     def insert_at_position(self, position, data):
-        new_node = Node(data)  
-        if position == 0:  
-            self.insert_at_beginning(data)
-            return
-            
+        if position > self.length or position<0:
+            return None
         else:
-            current = self.head  
-            previous = None  
-            index = 0  
+
+            if position == 0:  
+                self.insert_at_beginning(data)
+                return
+            
+            else:
+                if position == self.length:
+                    self.insert_end(data)
+                else:
+                    new_node = Node()
+                    new_node.data = data
+                    count = 1
+                    current = self.head
+                    while count < position-1:
+                        count +=1
+                        current = current.next
+                    new_node.next = current.next
+                    current.next = new_node
+                    self.length += 1
+                    
 
             
-            while current is not None and index < position:
-                previous = current 
-                current = current.next  
-                index += 1 
 
-            # Insert new node at the correct position
-            if previous is not None:
-                new_node.next = current  
-                previous.next = new_node  
-                if new_node.next is None:
-                    self.tail = new_node
-            else:
-                print("Position out of bounds")
+              
     
     def delete_at_beginning(self):
 
-        if self.head is None:
-            print("The list is empty.")
-            return
-        temp = self.head
-        self.head = self.head.next
-        del temp
+        if self.length == 0:
+            print("The list is empty")
+        else:
+            self.head = self.head.next
+            self.length -=1
 
     #Delete node at position
     def delete_node_at_position(self, position):
@@ -120,30 +148,30 @@ class LinkedList:
 
 
     def delete_last_node(self):
-        if self.head is None:  
-            print("List is empty.")
+        if self.length ==0:
+            print("The list is empty")
             return
 
-        
-        if self.head == self.tail:
-            self.head = None  
-            self.tail = None  
-            return
+        else:
+            if self.head == self.tail:
+                self.head = None  
+                self.tail = None  
+                return
 
        
-        temp_tail = self.head
-        previous = None
+            temp_tail = self.head
+            previous = None
 
         
-        while temp_tail.next is not None:  
-            previous = temp_tail
-            temp_tail = temp_tail.next
+            while temp_tail.next is not None:  
+                previous = temp_tail
+                temp_tail = temp_tail.next
 
         
-        self.tail = previous
-        previous.next = None
-
-        del temp_tail
+            self.tail = previous
+            previous.next = None
+            self.length -=1
+            
 
     
     def delete_list(self):
