@@ -4,7 +4,25 @@ class Node:
         self.data = data
         self.next = None
         self.prev = None
-
+    #method for setting the data field of the node
+    def setData(self, data):
+        self.data = data
+    #method for getting the data field of the node
+    def getData(self):
+        return self.data
+    #method for setting the next field of the node
+    def setNext(self,next):
+        self.next = next
+    def getNext(self):
+        return self.next
+    def hasNext(self):
+        return self.next is not None
+    def setPrev(self, prev):
+        self.prev = prev
+    def getPrev(self):
+        return self.prev
+    def hasPrev(self):
+        return self.prev != None
 # Doubly Linked List Class with all methods
 class DoublyLinkedList:
     def __init__(self):

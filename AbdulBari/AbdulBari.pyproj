@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>d197ccee-c6d9-4ca0-b6d7-6cdc238aa410</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>BasitProjeler\Library_a.py</StartupFile>
+    <StartupFile>VeriYapilari\01-LinkedList\01-SingleLinkedList.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
