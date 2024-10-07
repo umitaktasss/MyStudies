@@ -23,19 +23,23 @@ class Node:
         return self.prev
     def hasPrev(self):
         return self.prev != None
+    def __str__(self):
+        return "Node [Data = %s]" % (self.data,)
+
 # Doubly Linked List Class with all methods
-class DoublyLinkedList:
+class DoublyLinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
 
     # Insert at the beginning
     def insert_beginning(self, data):
-        new_node = Node(data)
+        new_node = Node(data,None,None)
         if self.head is None:
             self.head = new_node
             self.tail = new_node
             return
+        new_node.prev = None
         new_node.next = self.head
         self.head.prev = new_node
         self.head = new_node
@@ -52,31 +56,32 @@ class DoublyLinkedList:
         self.tail.next = new_node
         self.tail = new_node
 
+    def getNode(self, index):
+        currentNode = self.head
+        if currentNode == None:
+            return None
+        i = 0
+        while i < index and currentNode.next is not None:
+            currentNode = currentNode.next
+            i+=1
+        return currentNode
     # Insert at a specific position
-    def insert_position(self, data, position):
+    def insert_position(self, index, data):
         new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-            return
-        if position == 0:
+        if self.head is None or index  == 0:
             self.insert_beginning(data)
             return
-        current = self.head
-        index = 0
-
-        while current is not None and index < position:
-            position_prev = current
-            current = current.next
-            index += 1
-
-        if current is None:
+        temp = self.getNode(index-1)
+        
+        if temp is None or temp.next is None:
             self.insert_end(data)
-            return
-        new_node.next = current
-        new_node.prev = position_prev
-        position_prev.next = new_node
-        current.prev = new_node
+        else:
+            new_node.next = temp.next
+            new_node.prev = temp
+            if temp.next is not None:
+                temp.next.prev = new_node
+
+            temp.next = new_node
 
     # Delete the first node
     def delete_beginning(self):

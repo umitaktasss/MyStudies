@@ -21,7 +21,7 @@ class Node:
         return self.next is not None
 
 
-class LinkedList:
+class LinkedList(object):
     #initializing a list
     def __init__(self):
         self.length = 0
