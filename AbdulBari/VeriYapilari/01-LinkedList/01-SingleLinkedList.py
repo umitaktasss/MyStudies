@@ -27,7 +27,7 @@ class LinkedList(object):
         self.length = 0
         self.head = None
         self.tail = None
-    
+    # Method To Traverse in list and find element
     def find_element(self, data):
         current = self.head
         index = 0
@@ -39,10 +39,10 @@ class LinkedList(object):
             index += 1
         print(f"Element '{data}' not found in the list.")
         return False, -1
-
+    # Merthod for printing length
     def list_length(self):
         print(f"The list length: {self.length}")
-    #method for inserting a new node at the end of a Linked List
+    # Method for inserting a new node at the end of a Linked List
     def insert_end(self, data):
         new_node = Node()
         new_node.data = data
@@ -87,7 +87,7 @@ class LinkedList(object):
         new_node.next = current.next
         current.next = new_node
         self.length += 1
-
+    #Method for deleting head node 
     def delete_at_beginning(self):
         if self.length == 0:
             print("The list is empty")
@@ -96,7 +96,7 @@ class LinkedList(object):
             if self.length == 1:  # If there was only one node, reset tail
                 self.tail = None
             self.length -= 1
-
+    #Method to delete Node
     def deleteFromLinkedListWithNode(self, node):
         if self.length == 0:
             raise ValueError("List is empty.")
@@ -122,7 +122,7 @@ class LinkedList(object):
                 self.delete_last_node()
 
         self.length -= 1
-
+    #Method for deleting last node
     def delete_last_node(self):
         if self.length == 0:
             print("The list is empty")
@@ -142,22 +142,23 @@ class LinkedList(object):
             self.tail = previous
             previous.next = None
         self.length -= 1
-
+    #Method for deleting at position
     def deleteAtPosition(self, pos):
         if pos >= self.length or pos < 0:
             print("The position does not exist. Please enter a valid position")
             return
 
+        if pos == 0:
+            self.delete_at_beginning()
+            return
+
+        if pos == self.length - 1:
+            self.delete_last_node()
+            return
+
         count = 0
         currentnode = self.head
         previousnode = None
-
-        if pos == 0:
-            self.head = currentnode.next
-            if self.length == 1:
-                self.tail = None
-            self.length -= 1
-            return
 
         while currentnode is not None and count < pos:
             count += 1
