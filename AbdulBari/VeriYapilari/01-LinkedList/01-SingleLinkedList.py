@@ -27,24 +27,21 @@ class LinkedList(object):
         self.length = 0
         self.head = None
         self.tail = None
-
+    
     def find_element(self, data):
         current = self.head
         index = 0
         while current is not None:
             if current.data == data:
+                print(f"Element '{data}' found at index {index}.")
                 return True, index
             current = current.next
             index += 1
+        print(f"Element '{data}' not found in the list.")
         return False, -1
 
     def list_length(self):
-        current = self.head
-        count = 0
-        while current is not None:
-            count = count + 1
-            current = current.next
-        return count
+        print(f"The list length: {self.length}")
     #method for inserting a new node at the end of a Linked List
     def insert_end(self, data):
         new_node = Node()
@@ -173,40 +170,17 @@ class LinkedList(object):
                 self.tail = previousnode
             self.length -= 1
     def deleteWithValue(self, value):
-        if self.head is None:  # Check if the list is empty
-            print("The list is empty.")
-            return
-
-        currentnode = self.head
-        previousnode = None
-
-        # Case 1: If the node to be deleted is the head
-        if currentnode.data == value:
-            self.head = currentnode.next
-            if currentnode == self.tail:  # If there was only one node, update tail
-                self.tail = None
-            self.length -= 1
-            return
-
-        # Traverse through the list to find the node with the value
-        while currentnode is not None:
-            if currentnode.data == value:
-                previousnode.next = currentnode.next
-                if currentnode == self.tail:  # If the node is the tail, update the tail
-                    self.tail = previousnode
-                self.length -= 1
-                return
-            previousnode = currentnode
-            currentnode = currentnode.next
-
-        # If the loop ends and value was not found
-        print("The value provided is not present.")
-
+        found, index = self.find_element(value)
+        if found:
+            self.deleteAtPosition(index)
+        else:
+            print(f"Element '{value}' not found, so it cannot be deleted. ")
 
 
     def clear(self):
         self.head = None
         self.tail = None
+        self.length = 0
 
     def display(self):
         current = self.head
@@ -220,7 +194,6 @@ class LinkedList(object):
 
 # Creating an instance of the LinkedList class
 llist = LinkedList()
-
 # Insert elements at the end
 print("Inserting elements at the end:")
 llist.insert_end(10)
@@ -228,6 +201,7 @@ llist.insert_end(20)
 llist.insert_end(30)
 llist.insert_end(40)
 llist.display()  # Expected output: 10 -> 20 -> 30 -> 40
+
 
 # Insert an element at the beginning
 print("\nInserting element at the beginning:")
@@ -271,5 +245,4 @@ llist.display()  # Expected output: 10 -> 30
 print("\nClearing the list:")
 llist.clear()
 llist.display()  # Expected output: No output (empty list)
-
-
+llist.list_length()
