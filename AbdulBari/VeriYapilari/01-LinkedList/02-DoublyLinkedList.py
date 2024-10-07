@@ -31,18 +31,20 @@ class DoublyLinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
-
+        self.length = 0
     # Insert at the beginning
     def insert_beginning(self, data):
-        new_node = Node(data,None,None)
+        new_node = Node(data)
         if self.head is None:
             self.head = new_node
             self.tail = new_node
+            self.length +=1
             return
         new_node.prev = None
         new_node.next = self.head
         self.head.prev = new_node
         self.head = new_node
+        self.length +=1
 
     # Insert at the end
     def insert_end(self, data):
@@ -50,11 +52,13 @@ class DoublyLinkedList(object):
         if self.head is None:
             self.head = new_node
             self.tail = new_node
+            self.length +=1
             return
         new_node.next = None
         new_node.prev = self.tail
         self.tail.next = new_node
         self.tail = new_node
+        self.length += 1
 
     def getNode(self, index):
         currentNode = self.head
@@ -82,7 +86,7 @@ class DoublyLinkedList(object):
                 temp.next.prev = new_node
 
             temp.next = new_node
-
+        self.length +=1
     # Delete the first node
     def delete_beginning(self):
         if self.head is None:
@@ -90,14 +94,13 @@ class DoublyLinkedList(object):
             return
         # If only one element in the list
         if self.head.next is None:
-            del self.head
             self.head = None
             self.tail = None
-            return
-        temp = self.head
-        self.head = self.head.next
-        self.head.prev = None
-        del temp
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+        self.length -=1
+
 
     # Delete the last node
     def delete_end(self):
@@ -105,42 +108,46 @@ class DoublyLinkedList(object):
             print("The list is empty.")
             return
         if self.tail.prev is None and self.head.next is None:
-            del self.head
             self.head = None
             self.tail = None
-            return
-        temp = self.tail
-        self.tail = self.tail.prev
-        self.tail.next = None
-        del temp
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+        self.length -= 1
+
 
     # Delete a node at a specific position
-    def delete_position(self, position):
+    def delete_position(self, index):
         if self.head is None:
             print("The list is empty.")
             return
-        if position == 0:
+        if index ==0:
             self.delete_beginning()
             return
-        current = self.head
-        prev = None
-        index = 0
-        while current is not None and index < position:
-            prev = current
-            current = current.next
-            index += 1
-        if current is None:
-            print("Position out of bounds.")
+        if index == self.length-1:
+            self.delete_end()
             return
+        temp = self.getNode(index)
 
-        if current.next is None:
-            self.tail = prev
-            prev.next = None
-        else:
-            prev.next = current.next
-            current.next.prev = prev
+        if temp is None:
+            print("The position does not exist")
+            return
+        temp.prev.next = temp.next
+        if temp.next is not None:
+            temp.next.prev = temp.prev
 
-        del current
+        self.length -=1
+
+
+    def deleteWithData(self, data):
+      found, index = self.find_element(data)
+      if found:
+          self.delete_position(index)
+      else:
+           print(f"Element '{data} not found, so it cannot be deleted.'")
+
+        
+            
 
     # Find an element in the list
     def find_element(self, data):
@@ -167,12 +174,7 @@ class DoublyLinkedList(object):
 
     # Count the number of elements in the list
     def count_list(self):
-        current = self.head
-        count = 0
-        while current is not None:
-            count += 1
-            current = current.next
-        return count
+        print(f"The list length: {self.length}")
 
     # Delete the entire list
     def delete_list(self):
@@ -185,68 +187,65 @@ class DoublyLinkedList(object):
 
         self.head = None
         self.tail = None
+        self.length = 0
         print("The entire list has been deleted!")
 
 
 
 
+
+# Creating an instance of DoublyLinkedList
 dll = DoublyLinkedList()
 
-# Example 1: Insert elements at the beginning
-# Example 1: Insert elements at the beginning
-
-print("Inserting elements at the beginning:")
-dll.insert_beginning(30)
-dll.insert_beginning(20)
+# Insert elements at the beginning
+print("Inserting 10, 20, and 30 at the beginning:")
 dll.insert_beginning(10)
-dll.display()  # Expected output: 10 <-> 20 <-> 30
+dll.insert_beginning(20)
+dll.insert_beginning(30)
+dll.display()  # Expected: 30 <-> 20 <-> 10
 
-# Example 2: Insert elements at the end
-
-print("\nInserting elements at the end:")
+# Insert elements at the end
+print("\nInserting 40 and 50 at the end:")
 dll.insert_end(40)
 dll.insert_end(50)
-dll.display()  # Expected output: 10 <-> 20 <-> 30 <-> 40 <-> 50
+dll.display()  # Expected: 30 <-> 20 <-> 10 <-> 40 <-> 50
 
-# Example 3: Insert an element at a specific position
+# Insert at a specific position
+print("\nInserting 25 at position 2:")
+dll.insert_position(2, 25)
+dll.display()  # Expected: 30 <-> 20 <-> 25 <-> 10 <-> 40 <-> 50
 
-print("\nInserting elements at a specific position:")
-dll.insert_position(25, 2)  # Insert 25 at index 2
-dll.insert_position(35, 4)  # Insert 35 at index 4
-dll.display()  # Expected output: 10 <-> 20 <-> 25 <-> 30 <-> 35 <-> 40 <-> 50
+# Find an element
+print("\nFinding element 10:")
+dll.find_element(10)  # Expected: "Element '10' found at index 3."
 
-# Example 4: Find an element in the list
+# Delete at a specific position
+print("\nDeleting element at position 2:")
+dll.delete_position(2)
+dll.display()  # Expected: 30 <-> 20 <-> 10 <-> 40 <-> 50
 
-print("\nFinding elements:")
-found, index = dll.find_element(25)  # Expected: "Element '25' found at index 2."
-found, index = dll.find_element(60)  # Expected: "Element '60' not found in the list."
+# Delete with data
+print("\nDeleting element with data 40:")
+dll.deleteWithData(40)
+dll.display()  # Expected: 30 <-> 20 <-> 10 <-> 50
 
-# Example 5: Count the elements in the list
-
-print("\nCounting elements in the list:")
-count = dll.count_list()
-print(f"Number of elements in the list: {count}")  # Expected output: 7
-
-# Example 6: Delete the first node
-
+# Delete the first node
 print("\nDeleting the first node:")
 dll.delete_beginning()
-dll.display()  # Expected output: 20 <-> 25 <-> 30 <-> 35 <-> 40 <-> 50
+dll.display()  # Expected: 20 <-> 10 <-> 50
 
-# Example 7: Delete the last node
-
+# Delete the last node
 print("\nDeleting the last node:")
 dll.delete_end()
-dll.display()  # Expected output: 20 <-> 25 <-> 30 <-> 35 <-> 40
+dll.display()  # Expected: 20 <-> 10
 
-# Example 8: Delete a node at a specific position
+# Count elements in the list
+print("\nCounting the number of elements in the list:")
+dll.count_list()
+# Expected: 2
 
-print("\nDeleting a node at a specific position:")
-dll.delete_position(2)  # Deletes the node at index 2
-dll.display()  # Expected output: 20 <-> 25 <-> 35 <-> 40
-
-# Example 9: Delete the entire list
-
+# Delete the entire list
 print("\nDeleting the entire list:")
 dll.delete_list()
-dll.display()  # Expected output: "The list is empty."
+dll.display()  # Expected: "The list is empty."
+dll.count_list()
