@@ -178,13 +178,6 @@ class DoublyLinkedList(object):
 
     # Delete the entire list
     def delete_list(self):
-        current = self.head
-        while current:
-            auxiliary_node = current.next
-            print(f"Deleting node with data: {current.data}")
-            del current
-            current = auxiliary_node
-
         self.head = None
         self.tail = None
         self.length = 0
