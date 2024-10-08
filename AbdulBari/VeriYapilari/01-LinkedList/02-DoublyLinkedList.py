@@ -146,9 +146,6 @@ class DoublyLinkedList(object):
       else:
            print(f"Element '{data} not found, so it cannot be deleted.'")
 
-        
-            
-
     # Find an element in the list
     def find_element(self, data):
         current = self.head

@@ -1,27 +1,27 @@
 # yerel ve global degiskenler
-# yerel degiskenler fonksiyonlar icerisinde bulunur ve tanýmlanýp daha sonra bellekten silinir.
+# yerel degiskenler fonksiyonlar icerisinde bulunur ve tanï¿½mlanï¿½p daha sonra bellekten silinir.
 def sayi():
     a=10            #yerel degisken 
     print(a) 
-sayi() #yerel degisken kullanýldý ve atýldý
+sayi() #yerel degisken kullanï¿½ldï¿½ ve atï¿½ldï¿½
 #print(a) #Boyle bir degisken yok, yerel degisken yok oldu!
-#Global degiskenler en kapsamli degiskenler olarak adlandýrýlýr tanýmlandýktan sonra her yerden eriþebiliriz.
+#Global degiskenler en kapsamli degiskenler olarak adlandï¿½rï¿½lï¿½r tanï¿½mlandï¿½ktan sonra her yerden eriï¿½ebiliriz.
 b=5 #global degisken
 def fonksiyon():
     print(b)   # fonksiyon icerisinde kullanabilirim.
     
 fonksiyon()
 #b=5 olsaydi hata!
-#degiskenler fonksiyon cagrisi yapilmadan önce atanmalidir!!
+#degiskenler fonksiyon cagrisi yapilmadan ï¿½nce atanmalidir!!
 def fonksiyon1():
     b=3
     print(b)
 
-fonksiyon1() # 3 fonksiyon icerisinde yerel olarak 3 tanýmlandý ve daha sonra deger yok oldu
-print(b) # global deger 5 olarak ekranda görüntülenecek
+fonksiyon1() # 3 fonksiyon icerisinde yerel olarak 3 tanï¿½mlandï¿½ ve daha sonra deger yok oldu
+print(b) # global deger 5 olarak ekranda gï¿½rï¿½ntï¿½lenecek
 
 def fonksiyon2():
-    global b   #b degerimiz artýk global olarak ayarlandi yani sonraki alinacak degerde yok olup atýlmayacak,degisken olarak kaydedilecek
+    global b   #b degerimiz artï¿½k global olarak ayarlandi yani sonraki alinacak degerde yok olup atï¿½lmayacak,degisken olarak kaydedilecek
     b=2
     print(b)
 
