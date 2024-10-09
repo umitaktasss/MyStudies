@@ -1,12 +1,47 @@
-Unrolled linked lists
+Unrolled linked list:
 
-One of the biggest advantages of linked lists over arrays is that inserting an element at any location takes only O(1) time. However, it takes O(n) to search for an
-element in a linked list. There is a simple varation of the singly linked list called unrolled linked lists.
+It takes O(n) to search for an element in a linked list. With a simple variation of the singly linked list called unrolled linked list we can deal with it.
+An unrolled linked list stores multiple elements in each node (let us call it a block for our convenience).
+In each block,a circular linked list is used to connect all nodes.
 
-**An unrolled linked list stores multiple elements in each node. In each block, a circular list is used to connect all nodes.
+Assume that there will be no more than n elements in the unrolled linked list at any time. To simplify this problem, all block, except the last one,
+should contain exactly n^1/2 elements. Thus tehere will be no more than n^1/2 at any time.
 
-Assume that there will be no more than n elements in the unrolled linked list at any time. To simplify this problem, all blocks, except the last one, should contain exactly 
-ceiling n^(1/2). 
+In unrolled linked lists, we can find the k^th element in O(n^(1/2)) time
+	1- Traverse the list of block to the one that contains the k^th node, i.e., the [k/[n^(1/2)]] block. It takes O(n^(1/2)) since we may find it by going through no more than n^1/2 blocks.
+	2- Find the (k mod [n^(1/2)]) in the circular linked list of this block. It also takes O(n^(1/2)) since there are no more than [n^(1/2)] node in a single block.
 
-Searching for an element in Unrolled Linked lists:
-	In unrolled linked lists, we can find the k^th element in O(n^(1/2))
+
+Inserting an element in Unrolled Linked Lists
+
+When inserting a node, we have to re-arrange the nodes in the unrolled linked list to maintain the properties previously mentioned.
+Suppose that we insert a node x after the i^th node and x should be placed in the j^th block.
+Nodes in the j^th block and in the blocks after the j^th block have to be shifted toward the tail of the list so that each of them still have [n^(1/2)] nodes.
+In addition, a new block needs to be added to the tail if the last block of the list is out of space, it has more than [n^(1/2)] nodes.
+
+Performing Shift Operation
+
+1- A temporary pointer is needed to store the tail of A.
+2- In block A, move the next pointer of the head node to point to the second-to-last node, so that the tail node of A can be removed.
+3- Let the next pointer of the node which will be shifted (the tail  node of A), point to the tail node of B.
+4- Let the next pointer of the  head of B point to the node temp points to.
+5- Finally set the head of B to point to the node temp points to. Now the node temp points to becomes the new head node of B.
+6- Temp pointer can be thrown away. We have completed the shift operation to move the original tail node of A to become the new head node of B.
+
+Performance:
+One in speed, one in space. First, if the number of elements in each block is appropriately sized, we get noticeably better cache performance from the improved memory locality.
+Second, since we have O(n/m) link where n is the number of elements in the unrolled linked list and m is the number of elements we can store in any block, we can also save an appreciable amount of space
+which is particularly noticeable if each element is small.
+
+class Node:
+#If data is not given by useri it's taken as None
+	def __init__(self, data = None, next = None, prev= None):
+		self.data = data
+		self.next = next
+		self.prev = prev
+class LinkedBlock:
+	def __init__(self, nextBlock= None, blockHead= None):
+		self.next = nextBlock
+		self.head = blockHead
+		self.nodeCount = 0
+
