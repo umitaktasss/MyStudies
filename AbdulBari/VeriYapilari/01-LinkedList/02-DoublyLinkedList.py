@@ -29,6 +29,8 @@ class Node:
 # Doubly Linked List Class with all methods
 class DoublyLinkedList(object):
     def __init__(self):
+
+
         self.head = None
         self.tail = None
         self.length = 0
